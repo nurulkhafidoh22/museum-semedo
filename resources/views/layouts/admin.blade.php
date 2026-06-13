@@ -222,6 +222,23 @@
 
             </a>
 
+            <!-- PETUGAS -->
+            <a href="{{ route('admin.petugas.index') }}"
+                class="group flex items-center gap-3 px-4 py-3
+                text-[14px]
+                rounded-xl transition-all
+
+                {{ request()->routeIs('admin.petugas*')
+                ? 'bg-white/10 border-l-4 border-cyan-400 text-white shadow-lg'
+                : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">
+
+                <i data-lucide="user-cog"
+                    class="w-4 h-4"></i>
+
+                Petugas
+
+            </a>
+
             <!-- LAPORAN -->
             <a href="{{ route('admin.laporan') }}"
                 class="group flex items-center gap-3 px-4 py-3
@@ -250,11 +267,15 @@
     <div class="mt-auto p-6">
 
         <!-- PROFILE -->
-        <div class="bg-white/5
+        <a href="{{ route('profile.edit') }}"
+            class="block
+            bg-white/5
             border border-white/10
             rounded-2xl
             p-3.5
-            mb-6">
+            mb-6
+            hover:bg-white/10
+            transition-all duration-300">
 
             <div class="flex items-center gap-3">
 
@@ -265,25 +286,26 @@
                     text-cyan-300
                     font-semibold">
 
-                    A
+                    {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
 
                 </div>
 
                 <div>
 
                     <p class="text-sm font-medium text-white">
-                        Administrator
+                        {{ Auth::user()->name }}
                     </p>
 
                     <p class="text-xs text-gray-400">
-                        Museum Semedo
+                        Pengaturan Akun
                     </p>
 
                 </div>
 
             </div>
 
-        </div>
+        </a>
+
 
         <!-- LOGOUT -->
         <form method="POST"

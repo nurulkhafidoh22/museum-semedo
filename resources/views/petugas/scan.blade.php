@@ -52,19 +52,6 @@
             <!-- RIGHT -->
             <div class="flex items-center gap-4">
 
-                <!-- STATUS -->
-                <div class="hidden md:flex items-center gap-2
-                    px-4 py-2 rounded-full
-                    bg-green-50 text-green-700
-                    border border-green-100
-                    text-sm font-medium">
-
-                    <span class="w-2 h-2 rounded-full bg-green-500"></span>
-
-                    Scanner Aktif
-
-                </div>
-
                 <!-- LOGOUT -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
@@ -87,6 +74,36 @@
                     </button>
 
                 </form>
+
+                <!-- Pengaturan Akun -->
+                <a href="{{ route('profile.edit') }}"
+                    class="hidden md:flex items-center gap-3
+                    px-4 py-2 rounded-xl
+                    bg-white border border-gray-200
+                    hover:bg-gray-50 transition">
+
+                    <div class="w-8 h-8 rounded-full
+                        bg-cyan-100 text-cyan-700
+                        flex items-center justify-center
+                        font-semibold">
+
+                        {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
+
+                    </div>
+
+                    <div class="text-left">
+
+                        <p class="text-sm font-medium text-gray-800">
+                            {{ Auth::user()->name }}
+                        </p>
+
+                        <p class="text-xs text-gray-500">
+                            Pengaturan Akun
+                        </p>
+
+                    </div>
+
+                </a>
 
             </div>
 
@@ -172,17 +189,39 @@
 
             </div>
 
-            <button onclick="startScanner()"
-                class="mt-5 w-full
-                    bg-[#0f766e]
-                    text-white py-3 rounded-2xl
-                    text-sm font-semibold
-                    hover:bg-[#0d5f59]
-                    transition-all duration-300
-                    shadow-sm">
+            <div class="mt-5">
+
+                <button
+                    onclick="startScanner()"
+                    class="w-full flex items-center justify-center gap-2
+                        bg-[#0f766e]
+                        hover:bg-[#0d5f59]
+                        text-white
+                        py-3.5
+                        rounded-2xl
+                        font-semibold
+                        text-sm
+                        shadow-sm
+                        hover:shadow-md
+                        transition-all duration-300">
+
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        class="w-5 h-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M4 7V5a1 1 0 011-1h2m10 0h2a1 1 0 011 1v2m0 10v2a1 1 0 01-1 1h-2m-10 0H5a1 1 0 01-1-1v-2m4-8h8" />
+                    </svg>
+
                     Mulai Scan
-            </button>
-        </div>
+
+                </button>
+
+            </div>
+</div>
 
         <!-- HASIL -->
         <div class="bg-white rounded-xl shadow-sm border p-5">
@@ -246,30 +285,236 @@
 
     </div>
 
+    <div class="flex justify-between items-start mt-6 mb-6">
+           
+        <!-- CARD -->
+        <div class="w-[200px]">
+
+            <div class="bg-emerald-50
+                border border-emerald-100
+                rounded-2xl
+                p-4">
+
+                <p class="text-xs font-medium text-gray-600">
+                    Tiket Tervalidasi
+                </p>
+
+                <h2 class="text-3xl font-bold text-emerald-700 mt-2">
+                    {{ $totalValidasi }}
+                </h2>
+
+                <p class="text-xs text-emerald-700 mt-2">
+                    Total aktivitas scan
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- FILTER -->
+        <div class="bg-white
+            border border-gray-200
+            rounded-2xl
+            px-4 py-4
+            shadow-sm
+            inline-block">
+
+            <div class="mb-3">
+
+                <h3 class="text-sm font-semibold text-gray-800">
+                    Periode Scan
+                </h3>
+
+            </div>
+
+            <form method="GET">
+
+                <div class="flex flex-wrap items-end gap-3">
+
+                    <div>
+
+                        <label class="block text-xs text-gray-500 mb-1">
+                            Tanggal
+                        </label>
+
+                        <input
+                            type="date"
+                            name="date"
+                            value="{{ $date }}"
+                            class="border border-gray-200
+                            rounded-lg
+                            px-3 py-2
+                            text-sm
+                            focus:ring-0
+                            focus:border-[#0f766e]">
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="inline-flex items-center gap-2
+                        px-4 py-2
+                        rounded-lg
+                        bg-[#062b30]
+                        text-white
+                        text-sm font-medium
+                        hover:bg-[#041f23]
+                        transition">
+
+                        <i data-lucide="filter"
+                            class="w-4 h-4"></i>
+
+                        Terapkan
+
+                    </button>
+
+                    <a
+                        href="/scan"
+                        class="inline-flex items-center gap-2
+                        px-4 py-2
+                        rounded-lg
+                        border border-gray-300
+                        text-gray-700
+                        text-sm font-medium
+                        hover:bg-gray-100">
+
+                        <i data-lucide="rotate-ccw"
+                            class="w-4 h-4"></i>
+
+                        Reset
+
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
     <!-- LOG -->
     <div class="mt-6 bg-white rounded-xl shadow-sm border p-5">
 
-        <h2 class="text-lg font-medium text-gray-700 mb-4">Log Scan Hari Ini</h2>
+        <div class="mb-4">
+
+            <h2 class="text-lg font-semibold text-gray-900">
+                Riwayat Scan Tiket
+            </h2>
+
+            <p class="text-sm text-gray-500 mt-1">
+                Aktivitas validasi tiket pengunjung
+            </p>
+
+        </div>
 
         <div class="overflow-x-auto">
             <table class="w-full text-sm text-left">
-                <thead>
-                    <tr class="border-b text-gray-500">
-                        <th class="pb-2">Nama</th>
-                        <th class="pb-2">Tiket</th>
-                        <th class="pb-2">Waktu</th>
-                        <th class="pb-2">Status</th>
-                    </tr>
+                <thead class="bg-gray-50
+                    text-gray-500
+                    text-xs
+                    uppercase">
+
+                <tr>
+
+                    <th class="px-4 py-3 text-left">
+                        Tanggal
+                    </th>
+
+                    <th class="px-4 py-3 text-left">
+                        Nama
+                    </th>
+
+                    <th class="px-4 py-3 text-left">
+                        Tiket
+                    </th>
+
+                    <th class="px-4 py-3 text-left">
+                        Waktu
+                    </th>
+
+                    <th class="px-4 py-3 text-left">
+                        Status
+                    </th>
+
+                </tr>
                 </thead>
                 <tbody id="log-body">
-                    <tr class="text-gray-400">
-                        <td class="py-3">-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>Belum ada</td>
-                    </tr>
+
+                    @forelse($validations as $validation)
+                        <tr class="border-b">
+
+                            <td class="px-4 py-3">
+                                {{ \Carbon\Carbon::parse($validation->scanned_at)->format('d M Y') }}
+                            </td>
+                            
+                            <td class="px-4 py-3">
+                                {{ $validation->ticket?->nama ?? '-' }}
+                            </td>
+
+                            <td class="px-4 py-3">
+                                {{ ucfirst($validation->ticket?->jenis_tiket ?? '-') }}
+                            </td>
+
+                            <td class="px-4 py-3">
+                                {{ \Carbon\Carbon::parse($validation->scanned_at)->format('H:i:s') }}
+                            </td>
+
+                            <td class="px-4 py-3">
+
+                                <span class="px-2 py-1 text-xs rounded-full
+
+                                {{ $validation->status == 'valid'
+                                    ? 'bg-green-100 text-green-700'
+                                    : ($validation->status == 'duplicate'
+                                        ? 'bg-yellow-100 text-yellow-700'
+                                        : 'bg-red-100 text-red-700') }}">
+
+                                    {{ ucfirst($validation->status) }}
+
+                                </span>
+
+                            </td>
+
+                        </tr>
+                    @empty
+                        <tr>
+
+                            <td colspan="5" class="py-12">
+
+                                <div class="max-w-md mx-auto text-center">
+
+                                    <i data-lucide="scan-search"
+                                        class="w-10 h-10 text-gray-300 mx-auto mb-4">
+                                    </i>
+
+                                    <h3 class="text-lg font-semibold text-gray-900">
+
+                                        Belum Ada Aktivitas Scan
+
+                                    </h3>
+
+                                    <p class="mt-2 text-sm text-gray-500">
+
+                                        Tidak ditemukan riwayat scan
+                                        pada periode yang dipilih.
+
+                                    </p>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+                    @endforelse
+
                 </tbody>
             </table>
+        </div>
+
+        <!-- PAGINATION -->
+        <div class="px-6 py-4 border-t border-gray-100">
+            {{ $validations->links() }}
         </div>
 
     </div>
@@ -294,36 +539,64 @@ let scanner;
 function startScanner() {
 
     if (scanner) {
-        scanner.clear().catch(() => {});
+
+        scanner.stop()
+        .then(() => {
+
+            scanner.clear();
+
+        })
+        .catch(() => {});
+
     }
 
     scanner = new Html5Qrcode("reader");
 
-    Html5Qrcode.getCameras().then(cameras => {
+    scanner.start(
 
-        if (cameras.length) {
+        {
+            facingMode: "environment"
+        },
 
-            scanner.start(
-                cameras[0].id,
-                {
-                    fps: 10,
-                    qrbox: {
-                        width: 320,
-                        height: 320
-                    }
-                },
-                (decodedText) => {
+        {
+            fps: 10,
 
-                    scanner.stop().then(() => {
-                        validateTicket(decodedText);
-                    });
-                }
-            );
+            qrbox: function(viewfinderWidth, viewfinderHeight) {
+
+                const minEdge =
+                    Math.min(viewfinderWidth, viewfinderHeight);
+
+                return {
+                    width: minEdge * 0.75,
+                    height: minEdge * 0.75
+                };
+            }
+        },
+
+        function(decodedText) {
+
+            scanner.stop()
+            .then(() => {
+
+                validateTicket(decodedText);
+
+            });
+
+        },
+
+        function(errorMessage) {
+
+            // abaikan error scan
         }
 
-    }).catch(err => {
+    )
+    .catch(err => {
 
-        alert("Kamera tidak tersedia");
+        console.error(err);
+
+        alert(
+            "Tidak dapat mengakses kamera. Pastikan izin kamera telah diberikan."
+        );
 
     });
 }
@@ -366,16 +639,31 @@ function validateTicket(hash) {
         },
         body: JSON.stringify({ hash: hash })
     })
-    .then(res => res.json())
+    .then(async res => {
+
+        console.log("STATUS:", res.status);
+
+        const text = await res.text();
+
+        console.log("RESPONSE:", text);
+
+        return JSON.parse(text);
+    })
     .then(data => {
 
         showResult(data);
         addLog(data);
 
-        // AUTO RESTART
         setTimeout(() => {
             startScanner();
         }, 2500);
+
+    })
+    .catch(error => {
+
+        console.error("VALIDATION ERROR:", error);
+
+        alert("Terjadi kesalahan saat validasi tiket");
 
     });
 }
@@ -403,6 +691,10 @@ function showResult(data) {
     // VALID
     // =========================
     if (data.status === 'valid') {
+
+        if (navigator.vibrate) {
+            navigator.vibrate(300);
+        }
 
         document.getElementById('sound-success').play();
         document.getElementById('res-status').innerText = 'VALID';
@@ -526,7 +818,7 @@ function showResult(data) {
 
         lucide.createIcons();
 
-    }, 2200);
+    }, 8000);
 }
 
 // ============================

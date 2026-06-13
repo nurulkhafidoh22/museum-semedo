@@ -14,6 +14,8 @@ use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\KoleksiController;
+use App\Models\Validation;
+use App\Models\WebsitePage;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +23,22 @@ use App\Http\Controllers\KoleksiController;
 |--------------------------------------------------------------------------
 */
 Route::get('/', function () {
-    return view('pages.home');
+
+    $hero = WebsitePage::where(
+        'page',
+        'beranda'
+    )
+    ->where(
+        'section',
+        'hero'
+    )
+    ->first();
+
+    return view(
+        'pages.home',
+        compact('hero')
+    );
+
 })->name('home');
 
 /*
@@ -172,6 +189,24 @@ Route::prefix('admin')
 
     Route::get('/laporan/pdf', [LaporanController::class, 'exportPdf'])
     ->name('laporan.pdf');
+
+    Route::resource('petugas', \App\Http\Controllers\Admin\PetugasController::class);
+
+    Route::post(
+        '/petugas/{petugas}/reset-password',
+        [\App\Http\Controllers\Admin\PetugasController::class, 'resetPassword']
+    )->name('petugas.reset-password');
+
+    Route::get(
+        '/settings',
+        [\App\Http\Controllers\Admin\WebsiteSettingController::class, 'index']
+    )->name('settings');
+
+    Route::post(
+        '/settings/update-home',
+        [\App\Http\Controllers\Admin\WebsiteSettingController::class, 'updateHome']
+    )->name('settings.update-home');
+
 });
 
 /*
@@ -182,9 +217,29 @@ Route::prefix('admin')
 
 Route::middleware(['auth','role:petugas'])->group(function () {
 
-    Route::get('/scan', function () {
-        return view('petugas.scan');
-    });
+    Route::get('/scan', function (Request $request) {
+
+    $date = $request->date;
+
+    $query = Validation::with(['ticket', 'petugas']);
+
+    if ($date) {
+        $query->whereDate('scanned_at', $date);
+    }
+
+    $totalValidasi = $query->count();
+
+    $validations = $query
+        ->latest()
+        ->paginate(10)
+        ->withQueryString();
+
+    return view('petugas.scan', compact(
+        'validations',
+        'totalValidasi',
+        'date'
+    ));
+});
 
 });
 

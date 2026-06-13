@@ -1,16 +1,18 @@
 <nav
     x-data="{ scrolled: false, open: false }"
     x-init="
-        scrolled = window.scrollY > 30;
+        scrolled = window.location.pathname !== '/' || window.scrollY > 30;
+
         window.addEventListener('scroll', () => {
-            scrolled = window.scrollY > 30;
+            if (window.location.pathname === '/') {
+                scrolled = window.scrollY > 30;
+            }
         });
     "
     :class="scrolled
         ? 'bg-[#0f2a2c]/95 backdrop-blur-md shadow-lg'
         : 'bg-transparent'"
-    class="fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out"
->
+    class="fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out">
 
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center">
 

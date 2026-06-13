@@ -8,9 +8,17 @@
 <header class="relative h-[92vh] w-full overflow-hidden">
 
     <!-- Background -->
-    <img src="/images/background.jpg"
-         class="absolute inset-0 w-full h-full object-cover 
-                brightness-95 contrast-110 scale-105">
+    <img
+        src="{{ ($hero && $hero->image)
+            ? asset('storage/' . $hero->image) . '?v=' . $hero->updated_at->timestamp
+            : asset('images/background.jpg') }}"
+
+        class="absolute inset-0
+        w-full h-full
+        object-cover
+        brightness-95
+        contrast-110
+        scale-105">
 
     <!-- SOFT BLUR LAYER (TRIK UTAMA) -->
     <div class="absolute inset-0 backdrop-blur-[2px]"></div>
@@ -28,13 +36,16 @@
                 justify-center items-center text-center px-6 text-white">
 
         <h1 class="text-5xl md:text-6xl font-extrabold tracking-wide drop-shadow-md">
-            Museum Semedo
+
+            {{ $hero->title ?? 'Museum Semedo' }}
+
         </h1>
 
         <p class="mt-6 text-lg md:text-2xl text-white/90
-                  max-w-2xl leading-relaxed">
-            Menjelajahi jejak prasejarah melalui fosil dan artefak
-            berharga dari Situs Semedo, Tegal.
+                max-w-2xl leading-relaxed">
+
+            {{ $hero->content ?? 'Menjelajahi jejak prasejarah melalui fosil dan artefak berharga dari Situs Semedo, Tegal.' }}
+
         </p>
 
         <!-- CTA -->
