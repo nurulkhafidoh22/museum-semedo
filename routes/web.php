@@ -207,6 +207,11 @@ Route::prefix('admin')
         [\App\Http\Controllers\Admin\WebsiteSettingController::class, 'updateHome']
     )->name('settings.update-home');
 
+    Route::post(
+        '/settings/update-tentang',
+        [\App\Http\Controllers\Admin\WebsiteSettingController::class, 'updateTentang']
+    )->name('settings.update-tentang');
+
 });
 
 /*
@@ -251,7 +256,19 @@ Route::post('/validate-ticket', [TicketController::class, 'validateTicket'])
 | Tentang
 |--------------------------------------------------------------------------
 */
-Route::view('/tentang', 'pages.tentang')->name('tentang');
+Route::get('/tentang', function () {
+
+    $tentang = WebsitePage::where(
+        'page',
+        'tentang'
+    )->get();
+
+    return view(
+        'pages.tentang',
+        compact('tentang')
+    );
+
+})->name('tentang');
 
     /*
 |--------------------------------------------------------------------------

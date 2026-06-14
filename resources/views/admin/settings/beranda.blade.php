@@ -166,13 +166,23 @@ $hero = $pages->first();
 
                     <button
                         type="submit"
-
-                        class="px-6 py-3
+                        class="inline-flex items-center gap-2
+                        px-5 py-2.5
+                        rounded-xl
                         bg-[#062b30]
                         text-white
-                        rounded-xl
+                        font-medium
+
                         hover:bg-[#0f766e]
-                        transition">
+
+                        shadow-sm
+                        hover:shadow-md
+
+                        transition-all duration-300">
+
+                        <i data-lucide="save"
+                            class="w-4 h-4">
+                        </i>
 
                         Simpan Perubahan
 

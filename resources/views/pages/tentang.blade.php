@@ -1,5 +1,21 @@
 <x-app-layout>
 
+    @php
+
+    $badge = $tentang->where('section','badge')->first();
+
+    $title1 = $tentang->where('section','title_1')->first();
+
+    $title2 = $tentang->where('section','title_2')->first();
+
+    $title3 = $tentang->where('section','title_3')->first();
+
+    $description = $tentang->where('section','description')->first();
+
+    $image = $tentang->where('section','image')->first();
+
+    @endphp
+
 <div class="min-h-screen py-24 bg-[#f8fafc]">
 
     <div class="max-w-5xl mx-auto px-6 space-y-14">
@@ -28,7 +44,7 @@
                         bg-white/10 border border-white/10
                         text-sm font-medium">
 
-                        Museum Situs Semedo
+                        {{ $badge?->title ?? 'Museum Situs Semedo' }}
 
                     </span>
 
@@ -36,25 +52,25 @@
                         text-4xl md:text-5xl
                         font-bold leading-tight">
 
-                        Mengenal
+                        {{ $title1?->title ?? 'Mengenal' }}
 
                         <span class="block text-cyan-300">
 
-                            Museum Semedo
+                            {{ $title2?->title ?? 'Museum Semedo' }}
 
                         </span>
 
-                        Lebih Dekat
+                        {{ $title3?->title ?? 'Lebih Dekat' }}
 
                     </h1>
 
                     <p class="mt-6 text-white/80 leading-8 text-justify">
 
-                        Museum Semedo merupakan pusat pelestarian,
+                        {{ $description?->title ?? 'Museum Semedo merupakan pusat pelestarian,
                         penelitian, dan edukasi yang menyimpan berbagai
                         temuan fosil serta artefak penting dari Situs
                         Semedo sebagai bagian dari sejarah kehidupan
-                        manusia purba di Indonesia.
+                        manusia purba di Indonesia.' }}
 
                     </p>
 
@@ -64,7 +80,9 @@
                 <div>
 
                     <img
-                        src="{{ asset('images/bg-tentang.jpg') }}"
+                        src="{{ ($image && $image->image)
+                            ? asset('storage/'.$image->image) . '?v=' . strtotime($image->updated_at)
+                            : asset('images/bg-tentang.jpg') }}"
                         alt="Museum Semedo"
                         class="rounded-3xl shadow-2xl
                         object-cover w-full h-[320px]">
