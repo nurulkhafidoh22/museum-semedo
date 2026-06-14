@@ -1,6 +1,18 @@
 <x-app-layout>
 
-<section class="py-24 bg-[#f3f4f1] min-h-screen">
+    @php
+
+    $hargaDewasa = $tiket
+        ->where('section', 'harga_dewasa')
+        ->first();
+
+    $hargaWna = $tiket
+        ->where('section', 'harga_wna')
+        ->first();
+
+    @endphp
+
+    <section class="py-24 bg-[#f3f4f1] min-h-screen">
     <x-step-indicator step="1" />
 
     <div class="max-w-4xl mx-auto px-6">
@@ -189,12 +201,22 @@
 
                         <option value="">Pilih jenis tiket</option>
 
-                        <option value="domestik" data-harga="8000">
-                            Domestik — Rp8.000
+                        <option
+                            value="domestik"
+                            data-harga="{{ $hargaDewasa?->title ?? 8000 }}">
+
+                            Domestik —
+                            Rp{{ number_format($hargaDewasa?->title ?? 8000, 0, ',', '.') }}
+
                         </option>
 
-                        <option value="mancanegara" data-harga="20000">
-                            Mancanegara — Rp20.000
+                        <option
+                            value="mancanegara"
+                            data-harga="{{ $hargaWna?->title ?? 20000 }}">
+
+                            Mancanegara —
+                            Rp{{ number_format($hargaWna?->title ?? 20000, 0, ',', '.') }}
+
                         </option>
 
                     </select>

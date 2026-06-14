@@ -6,6 +6,7 @@ use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Midtrans\Config;
 use Midtrans\Snap;
+use App\Models\WebsitePage;
 
 class PaymentController extends Controller
 {
@@ -25,7 +26,22 @@ class PaymentController extends Controller
         $ticket = Ticket::findOrFail($id);
 
         // HARGA
-        $harga = ($ticket->kategori === 'mancanegara') ? 20000 : 8000;
+        $tiketCms = WebsitePage::where(
+            'page',
+            'tiket'
+        )->get();
+
+        $hargaDewasa = (int) optional(
+            $tiketCms->where('section', 'harga_dewasa')->first()
+        )->title;
+
+        $hargaWna = (int) optional(
+            $tiketCms->where('section', 'harga_wna')->first()
+        )->title;
+
+        $harga = $ticket->kategori === 'mancanegara'
+            ? ($hargaWna ?: 20000)
+            : ($hargaDewasa ?: 8000);
 
         // TOTAL PEMBAYARAN
         $total = $harga * $ticket->jumlah_tiket;

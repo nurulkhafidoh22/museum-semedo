@@ -54,7 +54,17 @@ Route::get('/tiket', function () {
 
 // Form tiket online
 Route::get('/tiket/online', function () {
-    return view('pages.tiket-online');
+
+    $tiket = WebsitePage::where(
+        'page',
+        'tiket'
+    )->get();
+
+    return view(
+        'pages.tiket-online',
+        compact('tiket')
+    );
+
 })->name('tiket.online');
 
 // Form tiket offline
@@ -212,6 +222,16 @@ Route::prefix('admin')
         [\App\Http\Controllers\Admin\WebsiteSettingController::class, 'updateTentang']
     )->name('settings.update-tentang');
 
+    Route::post(
+        '/settings/update-informasi',
+        [\App\Http\Controllers\Admin\WebsiteSettingController::class, 'updateInformasi']
+    )->name('settings.update-informasi');
+
+    Route::post(
+        '/settings/update-tiket',
+        [\App\Http\Controllers\Admin\WebsiteSettingController::class, 'updateTiket']
+    )->name('settings.update-tiket');
+
 });
 
 /*
@@ -275,7 +295,27 @@ Route::get('/tentang', function () {
 | Informasi
 |--------------------------------------------------------------------------
 */
-Route::view('/informasi', 'pages.informasi')->name('informasi');
+Route::get('/informasi', function () {
+
+    $informasi = WebsitePage::where(
+        'page',
+        'informasi'
+        )->get();
+
+        $tiket = WebsitePage::where(
+            'page',
+            'tiket'
+        )->get();
+
+        return view(
+            'pages.informasi',
+            compact(
+                'informasi',
+                'tiket'
+            )
+        );
+
+})->name('informasi');
 
     /*
 |--------------------------------------------------------------------------

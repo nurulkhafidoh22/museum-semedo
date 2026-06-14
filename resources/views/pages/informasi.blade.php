@@ -1,6 +1,40 @@
 <x-app-layout>
 
-<div class="min-h-screen py-24 bg-[#f8fafc]">
+@php
+
+$badge = $informasi->where('section','badge')->first();
+
+$title1 = $informasi->where('section','title_1')->first();
+
+$title2 = $informasi->where('section','title_2')->first();
+
+$title3 = $informasi->where('section','title_3')->first();
+
+$description = $informasi->where('section','description')->first();
+
+$image = $informasi->where('section','image')->first();
+
+$jamHari = $informasi->where('section','jam_hari')->first();
+
+$jamWaktu = $informasi->where('section','jam_waktu')->first();
+
+$tutupHari = $informasi->where('section','tutup_hari')->first();
+
+$tutupStatus = $informasi->where('section','tutup_status')->first();
+
+$liburHari = $informasi->where('section','libur_hari')->first();
+
+$liburStatus = $informasi->where('section','libur_status')->first();
+
+$hargaAnak = $tiket->where('section','harga_anak')->first();
+
+$hargaDewasa = $tiket->where('section','harga_dewasa')->first();
+
+$hargaWna = $tiket->where('section','harga_wna')->first();
+
+@endphp
+
+    <div class="min-h-screen py-24 bg-[#f8fafc]">
 
     <div class="max-w-5xl mx-auto px-6 space-y-16">
 
@@ -28,7 +62,7 @@
                         bg-white/10 border border-white/10
                         text-sm font-medium">
 
-                        Panduan Kunjungan
+                        {{ $badge?->title ?? 'Panduan Kunjungan' }}
 
                     </span>
 
@@ -36,24 +70,24 @@
                         text-4xl md:text-5xl
                         font-bold leading-tight">
 
-                        Persiapkan
+                        {{ $title1?->title ?? 'Persiapkan' }}
 
                         <span class="block text-cyan-300">
 
-                            Kunjungan Anda
+                            {{ $title2?->title ?? 'Kunjungan Anda' }}
 
                         </span>
 
-                        Sekarang
+                        {{ $title3?->title ?? 'Sekarang' }}
 
                     </h1>
 
                     <p class="mt-6 text-white/80
                         leading-8 max-w-xl text-justify">
 
-                        Dapatkan informasi lengkap mengenai jam operasional,
+                        {{ $description?->title ?? 'Dapatkan informasi lengkap mengenai jam operasional,
                         harga tiket, alur validasi QR Code, serta tata tertib
-                        kunjungan sebelum menjelajahi koleksi Museum Semedo.
+                        kunjungan sebelum menjelajahi koleksi Museum Semedo.' }}
 
                     </p>
 
@@ -63,7 +97,9 @@
                 <div>
 
                     <img
-                        src="{{ asset('images/bg-informasi.jpg') }}"
+                        src="{{ ($image && $image->image)
+                            ? asset('storage/'.$image->image) . '?v=' . strtotime($image->updated_at)
+                            : asset('images/bg-informasi.jpg') }}"
                         alt="Museum Semedo"
                         class="rounded-3xl shadow-2xl
                         object-cover w-full h-[320px]">
@@ -84,9 +120,29 @@
 
             <div class="space-y-2 text-gray-700">
 
-                <p><span class="font-semibold">Selasa – Minggu</span> : 08.00 – 15.30 WIB</p>
-                <p><span class="font-semibold">Senin</span> : Tutup</p>
-                <p><span class="font-semibold">Hari Libur Nasional Keagamaan</span> : Tutup</p>
+                <p>
+                    <span class="font-semibold">
+                        {{ $jamHari?->title ?? 'Selasa – Minggu' }}
+                    </span>
+                    :
+                    {{ $jamWaktu?->title ?? '08.00 – 15.30 WIB' }}
+                </p>
+
+                <p>
+                    <span class="font-semibold">
+                        {{ $tutupHari?->title ?? 'Senin' }}
+                    </span>
+                    :
+                    {{ $tutupStatus?->title ?? 'Tutup' }}
+                </p>
+
+                <p>
+                    <span class="font-semibold">
+                        {{ $liburHari?->title ?? 'Hari Libur Nasional Keagamaan' }}
+                    </span>
+                    :
+                    {{ $liburStatus?->title ?? 'Tutup' }}
+                </p>
 
             </div>
 
@@ -111,7 +167,7 @@
                     </h3>
 
                     <p class="text-4xl font-bold text-[#1ecad3] mb-3">
-                        Rp 3.000
+                        Rp {{ number_format($hargaAnak?->title ?? 3000, 0, ',', '.') }}
                     </p>
 
                     <p class="text-sm text-gray-500">
@@ -138,7 +194,7 @@
                     </h3>
 
                     <p class="text-5xl font-bold mb-3">
-                        Rp 8.000
+                        Rp {{ number_format($hargaDewasa?->title ?? 8000, 0, ',', '.') }}
                     </p>
 
                     <p class="text-sm text-white/70">
@@ -157,11 +213,11 @@
                     </h3>
 
                     <p class="text-4xl font-bold text-[#1ecad3] mb-3">
-                        Rp 20.000
+                        Rp {{ number_format($hargaWna?->title ?? 20000, 0, ',', '.') }}
                     </p>
 
                     <p class="text-sm text-gray-500">
-                        Wisatawan mancanegara
+                        Wisatawan Mancanegara
                     </p>
 
                 </div>
