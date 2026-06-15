@@ -34,9 +34,17 @@ Route::get('/', function () {
     )
     ->first();
 
+    $footer = WebsitePage::where(
+        'page',
+        'footer'
+    )->get();
+
     return view(
         'pages.home',
-        compact('hero')
+        compact(
+            'hero',
+            'footer'
+        )
     );
 
 })->name('home');
@@ -232,6 +240,40 @@ Route::prefix('admin')
         [\App\Http\Controllers\Admin\WebsiteSettingController::class, 'updateTiket']
     )->name('settings.update-tiket');
 
+    Route::get(
+        '/koleksi',
+        [\App\Http\Controllers\Admin\KoleksiController::class, 'index']
+    )->name('koleksi.index');
+
+    Route::get(
+        '/settings/koleksi/create',
+        [\App\Http\Controllers\Admin\KoleksiController::class, 'create']
+    )->name('settings.koleksi.create');
+
+    Route::post(
+        '/settings/koleksi/store',
+        [\App\Http\Controllers\Admin\KoleksiController::class, 'store']
+    )->name('settings.koleksi.store');
+
+    Route::get(
+        '/settings/koleksi/{koleksi}/edit',
+        [\App\Http\Controllers\Admin\KoleksiController::class, 'edit']
+    )->name('settings.koleksi.edit');
+
+    Route::put(
+        '/settings/koleksi/{koleksi}',
+        [\App\Http\Controllers\Admin\KoleksiController::class, 'update']
+    )->name('settings.koleksi.update');
+
+    Route::delete(
+        '/settings/koleksi/{koleksi}',
+        [\App\Http\Controllers\Admin\KoleksiController::class, 'destroy']
+    )->name('settings.koleksi.destroy');
+
+    Route::post(
+        '/settings/update-footer',
+        [\App\Http\Controllers\Admin\WebsiteSettingController::class, 'updateFooter']
+    )->name('settings.update-footer');
 });
 
 /*

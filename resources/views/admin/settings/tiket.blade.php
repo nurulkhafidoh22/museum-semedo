@@ -167,23 +167,29 @@ $hargaWna = $pages->where('section', 'harga_wna')->first();
 
             <div class="mt-8">
 
-                <button
-                    type="submit"
-                    class="inline-flex items-center gap-2
-                    px-5 py-2.5
-                    rounded-xl
-                    bg-[#062b30]
-                    text-white
-                    font-medium
-                    hover:bg-[#0f766e]
-                    shadow-sm
-                    hover:shadow-md
-                    transition-all duration-300">
+                    <button
+                        type="submit"
+                        class="inline-flex items-center gap-2
+                        px-5 py-2.5
+                        rounded-xl
+                        bg-[#062b30]
+                        text-white
+                        font-medium
 
-                    Simpan Perubahan
+                        hover:bg-[#0f766e]
 
-                </button>
+                        shadow-sm
+                        hover:shadow-md
 
+                        transition-all duration-300">
+
+                        <i data-lucide="save"
+                            class="w-4 h-4">
+                        </i>
+
+                        Simpan Perubahan
+
+                    </button>
             </div>
 
         </form>

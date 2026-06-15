@@ -541,7 +541,7 @@
         <!-- GRID -->
         <div class="grid md:grid-cols-3 gap-8">
 
-            @foreach($related as $slug => $item)
+            @foreach($related as $item)
 
             <div class="group bg-white
                 rounded-[28px]
@@ -555,8 +555,8 @@
                 <!-- IMAGE -->
                 <div class="relative overflow-hidden">
 
-                    <img src="{{ $item['gambar'] }}"
-                        alt="{{ $item['judul'] }}"
+                    <img src="{{ asset('storage/' . $item->gambar) }}"
+                        alt="{{ $item->judul }}"
                         class="w-full h-56 object-cover
                         group-hover:scale-110
                         transition duration-700">
@@ -575,7 +575,7 @@
                         bg-white/90 backdrop-blur-sm
                         text-xs font-medium text-gray-800">
 
-                        {{ $item['kategori'] }}
+                        {{ $item->kategori }}
 
                     </span>
 
@@ -587,18 +587,18 @@
                     <h3 class="text-xl font-semibold
                         text-gray-900 mb-3">
 
-                        {{ $item['judul'] }}
+                        {{ $item->judul }}
 
                     </h3>
 
                     <p class="text-sm text-gray-600
                         leading-7 mb-5">
 
-                        {{ $item['deskripsi'] }}
+                        {{ $item->deskripsi }}
 
                     </p>
 
-                    <a href="{{ route('koleksi.detail', $slug) }}"
+                    <a href="{{ route('koleksi.detail', $item->slug) }}"
                         class="inline-flex items-center gap-2
                         text-[#0f766e]
                         font-medium text-sm">

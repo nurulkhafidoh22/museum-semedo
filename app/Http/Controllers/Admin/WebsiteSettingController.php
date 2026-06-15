@@ -7,42 +7,53 @@ use App\Models\WebsitePage;
 use App\Models\WebsiteSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Koleksi;
 
 class WebsiteSettingController extends Controller
 {
     public function index(Request $request)
     {
-        $menu = $request->query('menu', 'beranda');
+    $menu = $request->query('menu', 'beranda');
 
-        $allowedMenus = [
-            'beranda',
-            'tentang',
-            'informasi',
-            'tiket',
-            'koleksi',
-            'footer'
-        ];
+    $allowedMenus = [
+        'beranda',
+        'tentang',
+        'informasi',
+        'tiket',
+        'koleksi',
+        'footer'
+    ];
 
-        if (!in_array($menu, $allowedMenus)) {
-            $menu = 'beranda';
-        }
-
-        $setting = WebsiteSetting::first();
-
-        $pages = WebsitePage::where(
-            'page',
-            $menu
-        )->get();
-
-        return view(
-            'admin.settings.index',
-            compact(
-                'menu',
-                'setting',
-                'pages'
-            )
-        );
+    if (!in_array($menu, $allowedMenus)) {
+        $menu = 'beranda';
     }
+
+    $setting = WebsiteSetting::first();
+
+    $pages = WebsitePage::where(
+        'page',
+        $menu
+    )->get();
+
+    $koleksi = collect();
+
+    if ($menu === 'koleksi') {
+
+        $koleksi = Koleksi::latest()->get();
+
+    }
+
+    return view(
+        'admin.settings.index',
+        compact(
+            'menu',
+            'setting',
+            'pages',
+            'koleksi'
+        )
+    );
+
+}
 
     public function updateHome(Request $request)
     {
@@ -299,6 +310,75 @@ class WebsiteSettingController extends Controller
             ->with(
                 'success',
                 'Harga tiket berhasil diperbarui.'
+            );
+    }
+
+    public function updateFooter(Request $request)
+    {
+        $request->validate([
+
+            'description' => 'required',
+
+            'alamat' => 'required|max:255',
+
+            'telepon' => 'required|max:255',
+
+            'email' => 'required|max:255',
+
+            'instagram' => 'nullable|max:255',
+
+            'tiktok' => 'nullable|max:255',
+
+            'youtube' => 'nullable|max:255',
+
+            'copyright' => 'required|max:255',
+
+        ]);
+
+        $sections = [
+
+            'description' => $request->description,
+
+            'alamat' => $request->alamat,
+
+            'telepon' => $request->telepon,
+
+            'email' => $request->email,
+
+            'instagram' => $request->instagram,
+
+            'tiktok' => $request->tiktok,
+
+            'youtube' => $request->youtube,
+
+            'copyright' => $request->copyright,
+
+        ];
+
+        foreach ($sections as $section => $value) {
+
+            WebsitePage::updateOrCreate(
+                [
+                    'page' => 'footer',
+                    'section' => $section,
+                ],
+                [
+                    'title' => $value,
+                ]
+            );
+        }
+
+        return redirect()
+            ->route(
+                'admin.settings',
+                [
+                    'menu' => 'footer',
+                    'refresh' => time()
+                ]
+            )
+            ->with(
+                'success',
+                'Footer berhasil diperbarui.'
             );
     }
 }

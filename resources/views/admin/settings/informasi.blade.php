@@ -322,10 +322,17 @@ $liburStatus = $pages->where('section', 'libur_status')->first();
                                         bg-[#062b30]
                                         text-white
                                         font-medium
+
                                         hover:bg-[#0f766e]
+
                                         shadow-sm
                                         hover:shadow-md
+
                                         transition-all duration-300">
+
+                                        <i data-lucide="save"
+                                            class="w-4 h-4">
+                                        </i>
 
                                         Simpan Perubahan
 

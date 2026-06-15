@@ -715,6 +715,20 @@
 <!-- ========================================= -->
 <!-- FOOTER (PROFESIONAL)                      -->
 <!-- ========================================= -->
+@php
+
+$getFooter = function ($section) use ($footer) {
+
+    return optional(
+        $footer->where(
+            'section',
+            $section
+        )->first()
+    )->title;
+};
+
+@endphp
+
 <footer class="bg-[#0f2a2c] text-white">
 
     <!-- TOP -->
@@ -738,8 +752,7 @@
             </div>
 
             <p class="text-gray-300 text-sm leading-relaxed">
-                Pusat edukasi prasejarah yang melestarikan warisan budaya
-                dan sejarah manusia purba di Kabupaten Tegal.
+                {{ $getFooter('description') }}
             </p>
         </div>
 
@@ -752,17 +765,17 @@
                 <li class="flex items-start gap-3">
                     <!-- Icon lokasi -->
                     <i data-lucide="map"></i>
-                    Kabupaten Tegal, Jawa Tengah
+                    {{ $getFooter('alamat') }}
                 </li>
 
                 <li class="flex items-center gap-3">
                     <i data-lucide="phone"></i>
-                    0813-2590-7771
+                    {{ $getFooter('telepon') }}
                 </li>
 
                 <li class="flex items-center gap-3">
                     <i data-lucide="mail"></i>
-                    museumcb@kemenbud.go.id
+                    {{ $getFooter('email') }}
                 </li>
 
             </ul>
@@ -846,7 +859,7 @@
 
             <div class="flex justify-center gap-4">
 
-                <a href="https://www.instagram.com/museumsemedo?igsh=NjAyNXBia2RrN2Zp"
+                <a href="{{ $getFooter('instagram') }}"
                    class="w-11 h-11 flex items-center justify-center
                           bg-white/10 rounded-xl
                           hover:bg-[#1ecad3] hover:text-[#0f2a2c]
@@ -861,7 +874,7 @@
                     </svg>
                 </a>
 
-                <a href="https://www.tiktok.com/@museumsemedo?_r=1&_t=ZS-944E8qgVHuM"
+                <a href="{{ $getFooter('tiktok') }}"
                    class="w-11 h-11 flex items-center justify-center
                           bg-white/10 rounded-xl
                           hover:bg-[#1ecad3] hover:text-[#0f2a2c]
@@ -876,7 +889,7 @@
                     </svg>
                 </a>
 
-                <a href="https://youtube.com/@museumsemedo?si=kXFDB1oi69ZRjqxq"
+                <a href="{{ $getFooter('youtube') }}"
                    class="w-11 h-11 flex items-center justify-center
                           bg-white/10 rounded-xl
                           hover:bg-[#1ecad3] hover:text-[#0f2a2c]
@@ -901,7 +914,7 @@
 
     <!-- BOTTOM -->
     <div class="text-center py-4 text-gray-400 text-sm">
-        © {{ date('Y') }} Museum Semedo. All rights reserved.
+        {{ $getFooter('copyright') }}
     </div>
 
 </footer>
