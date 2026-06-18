@@ -1,27 +1,43 @@
 <x-app-layout>
 
-<div class="min-h-screen bg-[#f8fafc] py-12 px-4">
-    <x-step-indicator
-        step="1"
-        label1="Isi Data"
-        label2="Validasi"
-        label3="Masuk" />
+<section class="py-20 md:py-24 bg-[#f8fafc] min-h-screen overflow-x-hidden">
 
-    <div class="max-w-4xl mx-auto">
+    <div class="mb-8 md:mb-12">
+        <x-step-indicator
+            step="1"
+            label1="Isi Data"
+            label2="Validasi"
+            label3="Masuk" />
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 md:px-6">
 
         <!-- CARD -->
-        <div class="bg-white rounded-3xl shadow-md border border-gray-200 p-8 md:p-12">
+        <div class="bg-white
+                    rounded-2xl md:rounded-3xl
+                    shadow-md
+                    border border-gray-200
+                    p-5 sm:p-6 md:p-12">
 
             <!-- HEADER -->
-            <div class="text-center mb-10">
+            <div class="text-center mb-8 md:mb-10">
 
-                <h2 class="text-3xl md:text-4xl font-bold text-[#1f2937]">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl
+                           font-bold text-[#1f2937]">
+
                     Pengisian Data Kunjungan Offline
+
                 </h2>
 
-                <p class="text-gray-500 mt-3 text-lg">
-                    Isi data kunjungan setelah membeli tiket di loket Museum Semedo
+                <p class="text-gray-500
+                          mt-3
+                          text-sm sm:text-base md:text-lg">
+
+                    Isi data kunjungan setelah membeli tiket
+                    di loket Museum Semedo
+
                 </p>
+
             </div>
 
             <form id="form-offline"
@@ -309,7 +325,10 @@
                 <div class="text-center pt-6">
 
                     <button type="submit"
-                            class="px-10 py-3 bg-[#0f2a2c] text-white
+                            class="w-full sm:w-auto
+                                px-10 py-3
+                                bg-[#0f2a2c]
+                                text-white
                                 rounded-full font-semibold shadow-lg
                                 hover:bg-transparent hover:text-[#0f2a2c]
                                 hover:border-2 hover:border-[#0f2a2c]
@@ -465,4 +484,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
 @endpush
 
+</section>
 </x-app-layout>

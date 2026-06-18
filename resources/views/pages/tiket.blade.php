@@ -17,7 +17,7 @@
 }
 </style>
 
-<div class="max-w-xl mx-auto my-12 px-6">
+<div class="max-w-xl mx-auto my-8 md:my-12 px-4 md:px-6">
 
     @if (!isset($ticket))
 
@@ -38,7 +38,11 @@
         <div class="bg-white rounded-3xl shadow-2xl overflow-hidden print-area">
 
             <!-- HEADER -->
-            <div class="bg-[#0f2a2c] text-white px-8 py-6 flex justify-between items-center">
+            <div class="bg-[#0f2a2c] text-white px-6 md:px-8 py-6
+                        flex flex-col sm:flex-row
+                        justify-between
+                        items-start sm:items-center
+                        gap-3">
 
                 <div>
                     <h2 class="text-xl font-bold">Museum Semedo</h2>
@@ -55,10 +59,14 @@
             </div>
 
             <!-- BODY -->
-            <div class="p-8">
+            <div class="p-5 md:p-8">
 
                 <!-- STATUS BADGE -->
-                <div class="flex justify-between items-center mb-6">
+                <div class="flex flex-col sm:flex-row
+                            justify-between
+                            items-start sm:items-center
+                            gap-3
+                            mb-6">
 
                     <div class="text-sm text-gray-500">
                         Berlaku pada:
@@ -84,11 +92,11 @@
                 </div>
 
                 <!-- INFO UTAMA -->
-                <div class="grid grid-cols-2 gap-6 mb-8 text-sm">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8 text-sm">
 
                     <div>
                         <p class="text-gray-500">Nama Pengunjung</p>
-                        <p class="font-semibold text-lg text-[#1f2937]">
+                        <p class="font-semibold text-base md:text-lg text-[#1f2937] break-words">
                             {{ $ticket->nama }}
                         </p>
                     </div>
@@ -105,7 +113,7 @@
                 <!-- QR BESAR -->
                 <div class="text-center">
 
-                    <div class="inline-block p-6 bg-[#f3f4f1] rounded-2xl shadow-inner">
+                    <div class="inline-block p-4 md:p-6 bg-[#f3f4f1] rounded-2xl shadow-inner">
                         {!! QrCode::size(240)->generate($ticket->hash) !!}
                     </div>
 
@@ -126,9 +134,14 @@
             </div>
 
             <!-- FOOTER -->
-            <div class="px-8 pb-8 flex justify-center gap-4 no-print">
+            <div class="px-5 md:px-8 pb-8
+                flex flex-col sm:flex-row
+                justify-center
+                gap-4
+                no-print">
                 <a href="{{ url('/') }}"
-                class="inline-flex items-center gap-2
+                class="w-full sm:w-auto
+                        inline-flex items-center gap-2
                         px-6 py-2
                         rounded-full
                         border border-[#0f2a2c]
@@ -144,7 +157,8 @@
                 </a>
 
                 <button onclick="window.print()"
-                        class="inline-block px-8 py-3
+                        class="w-full sm:w-auto
+                                inline-block px-8 py-3
                                 bg-[#0f2a2c] text-white
                                 rounded-full
                                 border border-[#0f2a2c]

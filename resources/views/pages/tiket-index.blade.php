@@ -1,6 +1,6 @@
 <x-app-layout>
 
-<section class="relative overflow-hidden min-h-screen bg-gradient-to-br
+<section class="relative overflow-x-hidden min-h-screen bg-gradient-to-br
     from-[#f8fafc]
     via-[#f3f4f1]
     to-[#eef6f7]">
@@ -14,7 +14,7 @@
     bg-emerald-200/20 blur-3xl rounded-full">
 </div>
 
-<div class="relative max-w-6xl mx-auto px-6 py-24">
+<div class="relative max-w-6xl mx-auto px-4 md:px-6 py-20 md:py-24">
 
     <!-- HEADER -->
     <div class="text-center">
@@ -30,7 +30,7 @@
         </span>
 
         <h1 class="mt-6
-            text-3xl md:text-4xl
+            text-2xl sm:text-3xl md:text-4xl
             font-bold text-[#0f2a2c]
             leading-tight">
 
@@ -61,9 +61,9 @@
             hover:-translate-y-2
             hover:shadow-2xl
             transition-all duration-300
-            p-8 overflow-hidden">
+            p-6 md:p-8 overflow-hidden">
 
-            <h3 class="text-2xl font-semibold text-[#0f2a2c]">
+            <h3 class="text-xl md:text-2xl font-semibold text-[#0f2a2c]">
                 Tiket Online
             </h3>
 
@@ -115,9 +115,9 @@
             hover:-translate-y-2
             hover:shadow-2xl
             transition-all duration-300
-            p-8 overflow-hidden">
+            p-6 md:p-8 overflow-hidden">
 
-            <h3 class="text-2xl font-semibold text-[#0f2a2c]">
+            <h3 class="text-xl md:text-2xl font-semibold text-[#0f2a2c]">
                 Tiket Offline
             </h3>
 

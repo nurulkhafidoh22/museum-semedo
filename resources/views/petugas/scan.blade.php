@@ -8,7 +8,9 @@
 </head>
 <body class="bg-[#f4f7f6] text-gray-800">
 
-<div class="min-h-screen px-6 py-6">
+<div class="min-h-screen
+            px-4 sm:px-6 lg:px-8
+            py-4 sm:py-6">
 
     <!-- HEADER -->
     <div class="mb-8">
@@ -50,20 +52,20 @@
             </div>
 
             <!-- RIGHT -->
-            <div class="flex items-center gap-4">
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full lg:w-auto">
 
                 <!-- LOGOUT -->
-                <form method="POST" action="{{ route('logout') }}">
+                <form method="POST" action="{{ route('logout') }}" class="w-full sm:w-auto">
                     @csrf
 
                     <button
-                        class="inline-flex items-center gap-2
+                        class="w-full sm:w-auto
+                        inline-flex items-center justify-center gap-2
                         px-5 py-2.5 rounded-xl
                         border border-gray-200
                         bg-white text-gray-700
                         text-sm font-medium
-                        hover:bg-gray-50
-                        transition">
+                        hover:bg-gray-50 transition">
 
                         <i data-lucide="log-out"
                             class="w-4 h-4">
@@ -77,10 +79,10 @@
 
                 <!-- Pengaturan Akun -->
                 <a href="{{ route('profile.edit') }}"
-                    class="hidden md:flex items-center gap-3
-                    px-4 py-2 rounded-xl
-                    bg-white border border-gray-200
-                    hover:bg-gray-50 transition">
+                class="flex items-center gap-3
+                px-4 py-2 rounded-xl
+                bg-white border border-gray-200
+                hover:bg-gray-50 transition">
 
                     <div class="w-8 h-8 rounded-full
                         bg-cyan-100 text-cyan-700
@@ -154,37 +156,51 @@
 
                 <!-- SCAN AREA -->
                 <div id="reader"
-                    class="w-full h-[360px]
+                    class="w-full
+                    h-[260px]
+                    sm:h-[320px]
+                    lg:h-[420px]
                     rounded-2xl overflow-hidden">
                 </div>
 
-                <!-- CORNER -->
-                <div class="absolute top-8 left-8
-                    w-10 h-10
-                    border-t-4 border-l-4
-                    border-[#0f766e]
-                    rounded-tl-xl">
+                <!-- CORNER TOP LEFT -->
+                <div class="absolute
+                            top-4 left-4
+                            md:top-8 md:left-8
+                            w-10 h-10
+                            border-t-4 border-l-4
+                            border-[#0f766e]
+                            rounded-tl-xl">
                 </div>
 
-                <div class="absolute top-8 right-8
-                    w-10 h-10
-                    border-t-4 border-r-4
-                    border-[#0f766e]
-                    rounded-tr-xl">
+                <!-- CORNER TOP RIGHT -->
+                <div class="absolute
+                            top-4 right-4
+                            md:top-8 md:right-8
+                            w-10 h-10
+                            border-t-4 border-r-4
+                            border-[#0f766e]
+                            rounded-tr-xl">
                 </div>
 
-                <div class="absolute bottom-8 left-8
-                    w-10 h-10
-                    border-b-4 border-l-4
-                    border-[#0f766e]
-                    rounded-bl-xl">
+                <!-- CORNER BOTTOM LEFT -->
+                <div class="absolute
+                            bottom-4 left-4
+                            md:bottom-8 md:left-8
+                            w-10 h-10
+                            border-b-4 border-l-4
+                            border-[#0f766e]
+                            rounded-bl-xl">
                 </div>
 
-                <div class="absolute bottom-8 right-8
-                    w-10 h-10
-                    border-b-4 border-r-4
-                    border-[#0f766e]
-                    rounded-br-xl">
+                <!-- CORNER BOTTOM RIGHT -->
+                <div class="absolute
+                            bottom-4 right-4
+                            md:bottom-8 md:right-8
+                            w-10 h-10
+                            border-b-4 border-r-4
+                            border-[#0f766e]
+                            rounded-br-xl">
                 </div>
 
             </div>
@@ -285,10 +301,14 @@
 
     </div>
 
-    <div class="flex justify-between items-start mt-6 mb-6">
-           
+    <div class="flex flex-col lg:flex-row
+            justify-between
+            items-stretch lg:items-start
+            gap-4
+            mt-6 mb-6">
+
         <!-- CARD -->
-        <div class="w-[200px]">
+        <div class="w-full lg:w-[220px]">
 
             <div class="bg-emerald-50
                 border border-emerald-100
@@ -313,11 +333,11 @@
 
         <!-- FILTER -->
         <div class="bg-white
-            border border-gray-200
-            rounded-2xl
-            px-4 py-4
-            shadow-sm
-            inline-block">
+                    border border-gray-200
+                    rounded-2xl
+                    px-4 py-4
+                    shadow-sm
+                    w-full lg:w-auto">
 
             <div class="mb-3">
 
@@ -329,7 +349,10 @@
 
             <form method="GET">
 
-                <div class="flex flex-wrap items-end gap-3">
+                <div class="flex flex-col sm:flex-row
+                            sm:flex-wrap
+                            items-stretch sm:items-end
+                            gap-3">
 
                     <div>
 
@@ -408,8 +431,8 @@
 
         </div>
 
-        <div class="overflow-x-auto">
-            <table class="w-full text-sm text-left">
+        <div class="overflow-x-auto rounded-xl">
+            <table class="min-w-[700px] w-full text-sm text-left">
                 <thead class="bg-gray-50
                     text-gray-500
                     text-xs
@@ -830,17 +853,35 @@ function addLog(data) {
 
     let firstRow = tbody.querySelector('tr');
 
-    if (firstRow && firstRow.innerText.includes('Belum ada')) {
+    if (
+        firstRow &&
+        firstRow.innerText.toLowerCase().includes('belum ada')
+    ) {
         tbody.innerHTML = '';
     }
 
     let row = `
-        <tr class="border-t">
-            <td class="py-2">${data.nama ?? '-'}</td>
-            <td>${data.tiket ?? '-'}</td>
-            <td>${new Date().toLocaleTimeString()}</td>
-            <td class="font-medium">${data.status}</td>
-        </tr>
+    <tr class="border-t">
+        <td class="px-4 py-3">
+            ${new Date().toLocaleDateString()}
+        </td>
+
+        <td class="px-4 py-3">
+            ${data.nama ?? '-'}
+        </td>
+
+        <td class="px-4 py-3">
+            ${data.tiket ?? '-'}
+        </td>
+
+        <td class="px-4 py-3">
+            ${new Date().toLocaleTimeString()}
+        </td>
+
+        <td class="px-4 py-3 font-medium">
+            ${data.status}
+        </td>
+    </tr>
     `;
 
     tbody.insertAdjacentHTML('afterbegin', row);

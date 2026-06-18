@@ -44,7 +44,7 @@ $liburStatus = $pages->where('section', 'libur_status')->first();
 
         </p>
 
-        <h1 class="text-3xl font-bold text-gray-900">
+        <h1 class="text-2xl md:text-3xl font-bold text-gray-900">
             Pengaturan Informasi
         </h1>
 
@@ -58,6 +58,7 @@ $liburStatus = $pages->where('section', 'libur_status')->first();
 
         <div class="bg-green-50
             border border-green-200
+            text-sm
             text-green-700
             px-4 py-3
             rounded-xl">
@@ -73,8 +74,10 @@ $liburStatus = $pages->where('section', 'libur_status')->first();
         <div class="bg-red-50
             border border-red-200
             text-red-700
+            text-sm
             px-4 py-3
-            rounded-xl">
+            rounded-xl
+            mb-6">
 
             <ul class="list-disc pl-5">
 
@@ -93,7 +96,7 @@ $liburStatus = $pages->where('section', 'libur_status')->first();
     <div class="bg-white
         border border-gray-200
         rounded-3xl
-        p-8">
+        p-5 md:p-8">
 
         <form
             action="{{ route('admin.settings.update-informasi') }}"
@@ -116,8 +119,14 @@ $liburStatus = $pages->where('section', 'libur_status')->first();
                         type="text"
                         name="badge"
                         value="{{ old('badge', $badge?->title) }}"
-                        class="w-full border border-gray-300 rounded-xl px-4 py-3">
-
+                        class="w-full
+                            border border-gray-300
+                            rounded-xl
+                            px-4 py-3
+                            focus:outline-none
+                            focus:ring-2
+                            focus:ring-[#0f766e]/20
+                            focus:border-[#0f766e]">
                 </div>
 
                 <div>
@@ -132,8 +141,14 @@ $liburStatus = $pages->where('section', 'libur_status')->first();
                         type="text"
                         name="title_1"
                         value="{{ old('title_1', $title1?->title) }}"
-                        class="w-full border border-gray-300 rounded-xl px-4 py-3">
-
+                        class="w-full
+                            border border-gray-300
+                            rounded-xl
+                            px-4 py-3
+                            focus:outline-none
+                            focus:ring-2
+                            focus:ring-[#0f766e]/20
+                            focus:border-[#0f766e]">
                 </div>
 
                 <div>
@@ -148,8 +163,14 @@ $liburStatus = $pages->where('section', 'libur_status')->first();
                         type="text"
                         name="title_2"
                         value="{{ old('title_2', $title2?->title) }}"
-                        class="w-full border border-gray-300 rounded-xl px-4 py-3">
-
+                        class="w-full
+                            border border-gray-300
+                            rounded-xl
+                            px-4 py-3
+                            focus:outline-none
+                            focus:ring-2
+                            focus:ring-[#0f766e]/20
+                            focus:border-[#0f766e]">
                 </div>
 
                 <div>
@@ -164,8 +185,14 @@ $liburStatus = $pages->where('section', 'libur_status')->first();
                         type="text"
                         name="title_3"
                         value="{{ old('title_3', $title3?->title) }}"
-                        class="w-full border border-gray-300 rounded-xl px-4 py-3">
-
+                        class="w-full
+                            border border-gray-300
+                            rounded-xl
+                            px-4 py-3
+                            focus:outline-none
+                            focus:ring-2
+                            focus:ring-[#0f766e]/20
+                            focus:border-[#0f766e]">
                 </div>
 
                 <div>
@@ -179,7 +206,14 @@ $liburStatus = $pages->where('section', 'libur_status')->first();
                     <textarea
                         name="description"
                         rows="6"
-                        class="w-full border border-gray-300 rounded-xl px-4 py-3">{{ old('description', $description?->title) }}</textarea>
+                        class="w-full
+                        border border-gray-300
+                        rounded-xl
+                        px-4 py-3
+                        focus:outline-none
+                        focus:ring-2
+                        focus:ring-[#0f766e]/20
+                        focus:border-[#0f766e]">{{ old('description', $description?->title) }}</textarea>
 
                 </div>
 
@@ -204,7 +238,11 @@ $liburStatus = $pages->where('section', 'libur_status')->first();
 
                         <img
                             src="{{ asset('storage/'.$image->image) }}?v={{ $image->updated_at?->timestamp }}"
-                            class="w-full max-w-md rounded-2xl border">
+                            class="w-full
+                                max-w-md
+                                rounded-2xl
+                                border border-gray-200
+                                shadow-sm">
 
                     </div>
 
@@ -228,8 +266,14 @@ $liburStatus = $pages->where('section', 'libur_status')->first();
                             type="text"
                             name="jam_hari"
                             value="{{ old('jam_hari', $jamHari?->title) }}"
-                            class="w-full border border-gray-300 rounded-xl px-4 py-3">
-
+                            class="w-full
+                                border border-gray-300
+                                rounded-xl
+                                px-4 py-3
+                                focus:outline-none
+                                focus:ring-2
+                                focus:ring-[#0f766e]/20
+                                focus:border-[#0f766e]">
                     </div>
 
                     <div>
@@ -242,8 +286,14 @@ $liburStatus = $pages->where('section', 'libur_status')->first();
                             type="text"
                             name="jam_waktu"
                             value="{{ old('jam_waktu', $jamWaktu?->title) }}"
-                            class="w-full border border-gray-300 rounded-xl px-4 py-3">
-
+                            class="w-full
+                                border border-gray-300
+                                rounded-xl
+                                px-4 py-3
+                                focus:outline-none
+                                focus:ring-2
+                                focus:ring-[#0f766e]/20
+                                focus:border-[#0f766e]">
                     </div>
 
                 </div>
@@ -260,8 +310,14 @@ $liburStatus = $pages->where('section', 'libur_status')->first();
                             type="text"
                             name="tutup_hari"
                             value="{{ old('tutup_hari', $tutupHari?->title) }}"
-                            class="w-full border border-gray-300 rounded-xl px-4 py-3">
-
+                            class="w-full
+                                border border-gray-300
+                                rounded-xl
+                                px-4 py-3
+                                focus:outline-none
+                                focus:ring-2
+                                focus:ring-[#0f766e]/20
+                                focus:border-[#0f766e]">
                     </div>
 
                     <div>
@@ -274,8 +330,14 @@ $liburStatus = $pages->where('section', 'libur_status')->first();
                             type="text"
                             name="tutup_status"
                             value="{{ old('tutup_status', $tutupStatus?->title) }}"
-                            class="w-full border border-gray-300 rounded-xl px-4 py-3">
-
+                            class="w-full
+                                border border-gray-300
+                                rounded-xl
+                                px-4 py-3
+                                focus:outline-none
+                                focus:ring-2
+                                focus:ring-[#0f766e]/20
+                                focus:border-[#0f766e]">
                     </div>
 
                 </div>
@@ -292,8 +354,14 @@ $liburStatus = $pages->where('section', 'libur_status')->first();
                             type="text"
                             name="libur_hari"
                             value="{{ old('libur_hari', $liburHari?->title) }}"
-                            class="w-full border border-gray-300 rounded-xl px-4 py-3">
-
+                            class="w-full
+                                border border-gray-300
+                                rounded-xl
+                                px-4 py-3
+                                focus:outline-none
+                                focus:ring-2
+                                focus:ring-[#0f766e]/20
+                                focus:border-[#0f766e]">
                     </div>
 
                     <div>
@@ -306,17 +374,23 @@ $liburStatus = $pages->where('section', 'libur_status')->first();
                             type="text"
                             name="libur_status"
                             value="{{ old('libur_status', $liburStatus?->title) }}"
-                            class="w-full border border-gray-300 rounded-xl px-4 py-3">
-
+                            class="w-full
+                                border border-gray-300
+                                rounded-xl
+                                px-4 py-3
+                                focus:outline-none
+                                focus:ring-2
+                                focus:ring-[#0f766e]/20
+                                focus:border-[#0f766e]">
                     </div>
 
                 </div>
-
                                 <div>
 
                                     <button
                                         type="submit"
-                                        class="inline-flex items-center gap-2
+                                        class="w-full sm:w-auto
+                                        inline-flex items-center justify-center gap-2
                                         px-5 py-2.5
                                         rounded-xl
                                         bg-[#062b30]
@@ -341,7 +415,6 @@ $liburStatus = $pages->where('section', 'libur_status')->first();
                                 </div>
 
                             </div>
-
                         </form>
 
                     </div>

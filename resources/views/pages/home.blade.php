@@ -5,7 +5,7 @@
 <!-- ========================================= -->
 <!-- HERO SECTION                              -->
 <!-- ========================================= -->
-<header class="relative h-[92vh] w-full overflow-hidden">
+<header class="relative h-screen min-h-[700px] w-full overflow-hidden">
 
     <!-- Background -->
     <img
@@ -32,10 +32,17 @@
     </div>
 
     <!-- CONTENT -->
-    <div class="relative z-10 h-full flex flex-col 
-                justify-center items-center text-center px-6 text-white">
+    <div class="relative z-10
+            min-h-screen
+            flex flex-col
+            justify-center
+            items-center
+            text-center
+            px-6
+            pt-24
+            text-white">
 
-        <h1 class="text-5xl md:text-6xl font-extrabold tracking-wide drop-shadow-md">
+        <h1 class="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-wide drop-shadow-md">
 
             {{ $hero->title ?? 'Museum Semedo' }}
 
@@ -49,7 +56,7 @@
         </p>
 
         <!-- CTA -->
-        <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
 
             <a href="/informasi"
                class="px-8 py-3 bg-[#1ecad3] text-[#0f2a2c]
@@ -80,10 +87,10 @@
 <!-- ========================================= -->
 <!-- ABOUT                                     -->
 <!-- ========================================= -->
-<section id="tentang" class="py-24 bg-white">
+<section id="tentang" class="py-16 md:py-24 bg-white">
 
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="grid lg:grid-cols-[5fr_7fr] gap-14 items-center">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="grid md:grid-cols-2 lg:grid-cols-[5fr_7fr] gap-14 items-center">
             <!-- FOTO -->
             <div>
                 <img
@@ -103,7 +110,7 @@
                 </span>
 
                 <h2
-                    class="text-4xl font-bold text-gray-900 mt-5 mb-6">
+                    class="text-3xl md:text-4xl font-bold text-gray-900 mt-5 mb-6">
 
                     Selamat Datang di Museum Semedo
 
@@ -151,10 +158,10 @@
 <!-- ========================================= -->
 <!-- INFORMASI & LAYANAN PENGUNJUNG            -->
 <!-- ========================================= -->
-<section class="py-24 bg-white">
+<section class="py-16 md:py-24 bg-white">
 
     <!-- HEADER -->
-    <div class="max-w-7xl mx-auto px-6 text-center mb-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 text-center mb-16">
 
         <span class="inline-flex items-center
             px-4 py-2 rounded-full
@@ -165,7 +172,7 @@
 
         </span>
 
-        <h2 class="mt-5 text-4xl font-bold text-gray-900">
+        <h2 class="mt-5 text-3xl md:text-4xl font-bold text-gray-900">
 
             Jelajahi Museum Semedo
 
@@ -182,7 +189,7 @@
     </div>
 
     <!-- GRID -->
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
 
         <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
 
@@ -191,7 +198,7 @@
             <!-- ================================= -->
             <a href="{{ route('tiket.online') }}"
                 class="group bg-white border border-gray-200
-                rounded-3xl p-8
+                rounded-3xl p-6 md:p-8
                 hover:border-cyan-400
                 hover:shadow-2xl
                 hover:-translate-y-1
@@ -246,7 +253,7 @@
             <!-- ================================= -->
             <a href="{{ route('informasi') }}"
                 class="group bg-white border border-gray-200
-                rounded-3xl p-8
+                rounded-3xl p-6 md:p-8
                 hover:border-cyan-400
                 hover:shadow-2xl
                 hover:-translate-y-1
@@ -301,7 +308,7 @@
             <!-- ================================= -->
             <a href="{{ route('koleksi') }}"
                 class="group bg-white border border-gray-200
-                rounded-3xl p-8
+                rounded-3xl p-6 md:p-8
                 hover:border-cyan-400
                 hover:shadow-2xl
                 hover:-translate-y-1
@@ -360,9 +367,9 @@
 <!-- ========================================= -->
 <!-- KOLEKSI UNGGULAN                          -->
 <!-- ========================================= -->
-<section id="koleksi" class="py-24 bg-[#f8fafc]">
+<section id="koleksi" class="py-16 md:py-24 bg-[#f8fafc]">
 
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
 
         <!-- Judul -->
         <div class="text-center mb-16">
@@ -378,7 +385,7 @@
         <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
 
             <!-- CARD 1 — KERBAU PURBA -->
-            <div class="group relative h-[420px] rounded-3xl overflow-hidden shadow-xl">
+            <div class="group relative h-[320px] md:h-[420px] rounded-3xl overflow-hidden shadow-xl">
 
                 <img src="{{ asset('images/koleksi-1.jpg') }}"
                      class="absolute w-full h-full object-cover
@@ -386,7 +393,7 @@
 
                 <div class="absolute inset-0 bg-black/50 group-hover:bg-black/65 transition"></div>
 
-                <div class="absolute bottom-0 p-8 text-white">
+                <div class="absolute bottom-0 p-5 md:p-8 text-white">
                     <h3 class="text-2xl font-bold mb-2">
                         Kerbau Purba
                     </h3>
@@ -405,7 +412,7 @@
             </div>
 
             <!-- CARD 2 — HOMO ERECTUS -->
-            <div class="group relative h-[420px] rounded-3xl overflow-hidden shadow-xl">
+            <div class="group relative h-[320px] md:h-[420px] rounded-3xl overflow-hidden shadow-xl">
 
                 <img src="{{ asset('images/koleksi-2.jpg') }}"
                      class="absolute w-full h-full object-cover
@@ -413,7 +420,7 @@
 
                 <div class="absolute inset-0 bg-black/50 group-hover:bg-black/65 transition"></div>
 
-                <div class="absolute bottom-0 p-8 text-white">
+                <div class="absolute bottom-0 p-5 md:p-8 text-white">
                     <h3 class="text-2xl font-bold mb-2">
                         Fosil Manusia Purba
                     </h3>
@@ -431,7 +438,7 @@
             </div>
 
             <!-- CARD 3 — MOLUSKA LAUT -->
-            <div class="group relative h-[420px] rounded-3xl overflow-hidden shadow-xl">
+            <div class="group relative h-[320px] md:h-[420px] rounded-3xl overflow-hidden shadow-xl">
 
                 <img src="{{ asset('images/koleksi-3.jpg') }}"
                      class="absolute w-full h-full object-cover
@@ -439,7 +446,7 @@
 
                 <div class="absolute inset-0 bg-black/50 group-hover:bg-black/65 transition"></div>
 
-                <div class="absolute bottom-0 p-8 text-white">
+                <div class="absolute bottom-0 p-5 md:p-8 text-white">
                     <h3 class="text-2xl font-bold mb-2">
                         Fosil Moluska Laut Purba
                     </h3>
@@ -462,7 +469,7 @@
 <!-- ========================================= -->
 <!-- SEJARAH MUSEUM SEMEDO -->
 <!-- ========================================= -->
-<section id="sejarah" class="py-20 bg-[#f8fafc]">
+<section id="sejarah" class="py-14 md:py-20 bg-[#f8fafc]">
 
     <!-- HEADER -->
     <div class="max-w-4xl mx-auto px-6 text-center mb-14">
@@ -501,7 +508,7 @@
             <!-- GARIS TIMELINE -->
             <div class="
                 absolute
-                left-[9px]
+                left-[10px]
                 top-0
                 bottom-0
                 w-[2px]
@@ -517,7 +524,7 @@
             <!-- 2012 -->
             <!-- ================================= -->
 
-            <div class="relative pl-12 pb-10">
+            <div class="relative pl-10 md:pl-12 pb-10">
 
                 <!-- DOT -->
                 <div class="
@@ -558,7 +565,7 @@
                     mt-2
                     text-gray-600
                     leading-7
-                    max-w-3xl">
+                    max-w-3xl text-justify">
 
                     Warga sekitar menemukan fosil manusia purba
                     dan berbagai artefak bersejarah yang kemudian
@@ -575,7 +582,7 @@
             <!-- 2015 -->
             <!-- ================================= -->
 
-            <div class="relative pl-12 pb-10">
+            <div class="relative pl-10 md:pl-12 pb-10">
 
                 <!-- DOT -->
                 <div class="
@@ -616,7 +623,7 @@
                     mt-2
                     text-gray-600
                     leading-7
-                    max-w-3xl">
+                    max-w-3xl text-justify">
 
                     Berbagai penelitian arkeologi dilakukan
                     untuk mengidentifikasi temuan fosil dan artefak,
@@ -632,7 +639,7 @@
             <!-- 2017 -->
             <!-- ================================= -->
 
-            <div class="relative pl-12">
+            <div class="relative pl-10 md:pl-12 pb-10">
 
                 <!-- DOT -->
                 <div class="
@@ -673,7 +680,7 @@
                     mt-2
                     text-gray-600
                     leading-7
-                    max-w-3xl">
+                    max-w-3xl text-justify">
 
                     Museum Semedo resmi dibuka sebagai pusat edukasi,
                     penelitian, dan pelestarian warisan budaya
@@ -693,7 +700,7 @@
 <!-- ========================================= -->
 <!-- LOKASI                                    -->
 <!-- ========================================= -->
-<section id="lokasi" class="py-20 bg-white">
+<section id="lokasi" class="py-14 md:py-20 bg-white">
 
     <div class="max-w-5xl mx-auto px-6 text-center mb-8">
         <h2 class="text-4xl font-bold text-[#1f2937]">
@@ -703,7 +710,7 @@
 
     <div class="max-w-5xl mx-auto px-6">
         <iframe
-            class="w-full h-96 rounded-2xl shadow-md"
+            class="w-full h-72 md:h-96 rounded-2xl shadow-md"
             src="https://www.google.com/maps?q=Museum+Situs+Semedo&output=embed"
             loading="lazy">
         </iframe>
@@ -732,9 +739,11 @@ $getFooter = function ($section) use ($footer) {
 <footer class="bg-[#0f2a2c] text-white">
 
     <!-- TOP -->
-    <div class="max-w-7xl mx-auto px-6 py-14
-            grid md:grid-cols-[2fr_1fr_1fr_1fr]
-            gap-12">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-14
+            grid
+            grid-cols-1
+            md:grid-cols-[2fr_1fr_1fr_1fr]
+            gap-10 md:gap-12">
 
         <!-- Brand + Logo -->
         <div>
@@ -751,7 +760,7 @@ $getFooter = function ($section) use ($footer) {
 
             </div>
 
-            <p class="text-gray-300 text-sm leading-relaxed">
+            <p class="text-gray-300 text-sm leading-relaxed text-justify">
                 {{ $getFooter('description') }}
             </p>
         </div>
@@ -843,6 +852,7 @@ $getFooter = function ($section) use ($footer) {
                 <li>
                     <a href="https://wa.me/6281325907771?text=Halo%20Museum%20Semedo,%20saya%20ingin%20bertanya%20mengenai%20kunjungan."
                     target="_blank"
+                    rel="noopener noreferrer"
                     class="block pl-3 border-l-2 border-transparent
                             hover:border-[#1ecad3]
                             hover:text-[#1ecad3]
@@ -854,10 +864,13 @@ $getFooter = function ($section) use ($footer) {
         </div>
 
         <!-- Media Sosial -->
-        <div class="md:text-center">
-            <h4 class="font-semibold mb-4">Media Sosial</h4>
+        <div>
 
-            <div class="flex justify-center gap-4">
+            <h4 class="font-semibold mb-4">
+                Media Sosial
+            </h4>
+
+            <div class="flex gap-4">
 
                 <a href="{{ $getFooter('instagram') }}"
                    class="w-11 h-11 flex items-center justify-center
@@ -927,3 +940,5 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 @endpush
+
+@endsection

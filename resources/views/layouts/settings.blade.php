@@ -19,17 +19,48 @@
 
 <body class="bg-[#f5f7fb] font-[Figtree]">
 
+    <!-- MOBILE MENU BUTTON -->
+    <button
+        id="sidebarToggle"
+        class="lg:hidden
+        fixed top-4 left-4 z-[60]
+
+        p-2.5
+        rounded-xl
+
+        bg-white
+        shadow-md
+        border border-gray-200">
+
+        <i data-lucide="menu"
+            class="w-5 h-5 text-gray-700"></i>
+
+    </button>
+
 <div class="flex min-h-screen">
 
     <!-- ===================================== -->
     <!-- SIDEBAR -->
     <!-- ===================================== -->
 
-    <aside class="fixed top-0 left-0 h-screen w-72
-        bg-[#0b1f21]
-        text-white
-        flex flex-col
-        border-r border-white/10">
+    <div id="sidebarOverlay"
+        class="hidden fixed inset-0 z-40
+        bg-black/40
+        lg:hidden">
+    </div>
+    <aside id="sidebar"
+            class="fixed top-0 left-0 z-50
+            h-screen w-72
+            bg-[#0b1f21]
+            text-white
+            flex flex-col
+            border-r border-white/10
+
+            transform -translate-x-full
+            lg:translate-x-0
+
+            overflow-y-auto
+            transition-transform duration-300">
 
         <!-- ===================================== -->
         <!-- BRAND -->
@@ -249,9 +280,9 @@
     <!-- CONTENT -->
     <!-- ===================================== -->
 
-    <div class="flex-1 ml-72">
+    <div class="flex-1 lg:ml-72">
 
-        <main class="p-8">
+        <main class="pt-20 lg:pt-8 p-4 md:p-6 lg:p-8">
 
             @yield('content')
 
@@ -262,7 +293,27 @@
 </div>
 
 <script>
-    lucide.createIcons();
+
+lucide.createIcons();
+
+const sidebar = document.getElementById('sidebar');
+const toggle = document.getElementById('sidebarToggle');
+const overlay = document.getElementById('sidebarOverlay');
+
+toggle?.addEventListener('click', () => {
+
+    sidebar.classList.toggle('-translate-x-full');
+    overlay.classList.toggle('hidden');
+
+});
+
+overlay?.addEventListener('click', () => {
+
+    sidebar.classList.add('-translate-x-full');
+    overlay.classList.add('hidden');
+
+});
+
 </script>
 
 </body>

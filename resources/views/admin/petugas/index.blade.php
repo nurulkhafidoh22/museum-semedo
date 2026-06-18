@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="p-6 bg-[#f5f7fb] min-h-screen">
+<div class="p-4 md:p-6 bg-[#f5f7fb] min-h-screen">
 
 <!-- HEADER -->
 <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5 mb-8">
@@ -24,7 +24,9 @@
     </div>
 
     <a href="{{ route('admin.petugas.create') }}"
-        class="inline-flex items-center gap-2
+        class="w-full sm:w-auto
+        lg:mt-6
+        inline-flex items-center justify-center gap-2
         px-5 py-3 rounded-xl
         bg-[#062b30]
         text-white
@@ -41,20 +43,24 @@
 </div>
 
 <!-- STATISTIC -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+<div class="mb-8">
 
-    <div class="rounded-2xl border border-cyan-100
-        bg-cyan-50/60 p-5">
+    <div class="w-full sm:w-64
+                rounded-2xl
+                border border-cyan-100
+                bg-cyan-50/60
+                p-5
+                text-center">
 
         <p class="text-sm text-gray-600">
             Total Petugas
         </p>
 
-        <h2 class="text-3xl font-bold text-gray-900 mt-2">
+        <h2 class="text-4xl font-bold text-gray-900 mt-3">
             {{ $petugas->count() }}
         </h2>
 
-        <p class="text-xs text-cyan-700 mt-4">
+        <p class="text-xs text-cyan-700 mt-3">
             Akun petugas aktif
         </p>
 
@@ -65,7 +71,7 @@
 <!-- TABLE -->
 <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden">
 
-    <div class="px-6 py-5 border-b border-gray-100">
+    <div class="px-4 md:px-6 py-5 border-b border-gray-100">
 
         <h2 class="text-xl font-semibold text-gray-900">
             Daftar Petugas
@@ -79,7 +85,7 @@
 
     <div class="overflow-x-auto">
 
-        <table class="w-full">
+        <table class="min-w-[700px] w-full">
 
             <thead class="bg-gray-50">
 
@@ -135,12 +141,13 @@
 
                     <td class="px-6 py-5">
 
-                        <div class="flex justify-center gap-2">
+                        <div class="flex flex-col sm:flex-row justify-center gap-2 whitespace-nowrap">
 
                             <a href="{{ route('admin.petugas.edit', $user->id) }}"
                                 class="px-3 py-2 rounded-lg
-                                border border-gray-200
-                                text-sm hover:bg-gray-50">
+                                    border border-amber-200
+                                    text-amber-700
+                                    text-sm hover:bg-amber-50">
                                 Edit
                             </a>
 
@@ -158,7 +165,7 @@
                                     text-amber-700
                                     text-sm hover:bg-amber-50">
 
-                                    Reset Password
+                                    Reset
 
                                 </button>
 

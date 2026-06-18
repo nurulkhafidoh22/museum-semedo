@@ -5,15 +5,14 @@
 @php
 
 $hargaAnak = $pages->where('section', 'harga_anak')->first();
-
 $hargaDewasa = $pages->where('section', 'harga_dewasa')->first();
-
 $hargaWna = $pages->where('section', 'harga_wna')->first();
 
 @endphp
 
 <div class="space-y-6">
 
+    <!-- HEADER -->
     <div>
 
         <p class="text-[11px]
@@ -26,7 +25,7 @@ $hargaWna = $pages->where('section', 'harga_wna')->first();
 
         </p>
 
-        <h1 class="text-3xl font-bold text-gray-900">
+        <h1 class="text-2xl md:text-3xl font-bold text-gray-900">
             Pengaturan Tiket
         </h1>
 
@@ -36,10 +35,12 @@ $hargaWna = $pages->where('section', 'harga_wna')->first();
 
     </div>
 
+    <!-- SUCCESS -->
     @if(session('success'))
 
         <div class="bg-green-50
             border border-green-200
+            text-sm
             text-green-700
             px-4 py-3
             rounded-xl">
@@ -50,10 +51,12 @@ $hargaWna = $pages->where('section', 'harga_wna')->first();
 
     @endif
 
+    <!-- ERROR -->
     @if ($errors->any())
 
         <div class="bg-red-50
             border border-red-200
+            text-sm
             text-red-700
             px-4 py-3
             rounded-xl">
@@ -72,10 +75,11 @@ $hargaWna = $pages->where('section', 'harga_wna')->first();
 
     @endif
 
+    <!-- CARD -->
     <div class="bg-white
         border border-gray-200
         rounded-3xl
-        p-8">
+        p-5 md:p-8">
 
         <form
             action="{{ route('admin.settings.update-tiket') }}"
@@ -83,20 +87,21 @@ $hargaWna = $pages->where('section', 'harga_wna')->first();
 
             @csrf
 
-            <div class="grid md:grid-cols-3 gap-6">
+            <div class="grid
+                grid-cols-1
+                md:grid-cols-2
+                xl:grid-cols-3
+                gap-6">
 
-                <!-- Anak -->
+                <!-- ANAK -->
+                <div class="border border-gray-200 rounded-2xl p-5">
 
-                <div>
+                    <p class="text-xs uppercase tracking-wider text-gray-400 mb-2">
+                        Tiket Anak
+                    </p>
 
-                    <label class="block
-                        text-sm
-                        font-medium
-                        text-gray-700
-                        mb-2">
-
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
                         Harga Tiket Anak
-
                     </label>
 
                     <input
@@ -104,25 +109,25 @@ $hargaWna = $pages->where('section', 'harga_wna')->first();
                         name="harga_anak"
                         value="{{ old('harga_anak', $hargaAnak?->title) }}"
                         class="w-full
-                        border
-                        border-gray-300
+                        border border-gray-300
                         rounded-xl
-                        px-4 py-3">
+                        px-4 py-3
+                        focus:outline-none
+                        focus:ring-2
+                        focus:ring-[#0f766e]/20
+                        focus:border-[#0f766e]">
 
                 </div>
 
-                <!-- Dewasa -->
+                <!-- DEWASA -->
+                <div class="border border-gray-200 rounded-2xl p-5">
 
-                <div>
+                    <p class="text-xs uppercase tracking-wider text-gray-400 mb-2">
+                        Tiket Dewasa
+                    </p>
 
-                    <label class="block
-                        text-sm
-                        font-medium
-                        text-gray-700
-                        mb-2">
-
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
                         Harga Tiket Dewasa
-
                     </label>
 
                     <input
@@ -130,25 +135,25 @@ $hargaWna = $pages->where('section', 'harga_wna')->first();
                         name="harga_dewasa"
                         value="{{ old('harga_dewasa', $hargaDewasa?->title) }}"
                         class="w-full
-                        border
-                        border-gray-300
+                        border border-gray-300
                         rounded-xl
-                        px-4 py-3">
+                        px-4 py-3
+                        focus:outline-none
+                        focus:ring-2
+                        focus:ring-[#0f766e]/20
+                        focus:border-[#0f766e]">
 
                 </div>
 
                 <!-- WNA -->
+                <div class="border border-gray-200 rounded-2xl p-5">
 
-                <div>
+                    <p class="text-xs uppercase tracking-wider text-gray-400 mb-2">
+                        Wisatawan Mancanegara
+                    </p>
 
-                    <label class="block
-                        text-sm
-                        font-medium
-                        text-gray-700
-                        mb-2">
-
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
                         Harga Tiket WNA
-
                     </label>
 
                     <input
@@ -156,40 +161,42 @@ $hargaWna = $pages->where('section', 'harga_wna')->first();
                         name="harga_wna"
                         value="{{ old('harga_wna', $hargaWna?->title) }}"
                         class="w-full
-                        border
-                        border-gray-300
+                        border border-gray-300
                         rounded-xl
-                        px-4 py-3">
+                        px-4 py-3
+                        focus:outline-none
+                        focus:ring-2
+                        focus:ring-[#0f766e]/20
+                        focus:border-[#0f766e]">
 
                 </div>
 
             </div>
 
+            <!-- BUTTON -->
             <div class="mt-8">
 
-                    <button
-                        type="submit"
-                        class="inline-flex items-center gap-2
-                        px-5 py-2.5
-                        rounded-xl
-                        bg-[#062b30]
-                        text-white
-                        font-medium
+                <button
+                    type="submit"
+                    class="w-full sm:w-auto
+                    inline-flex items-center justify-center gap-2
+                    px-5 py-2.5
+                    rounded-xl
+                    bg-[#062b30]
+                    text-white
+                    font-medium
+                    hover:bg-[#0f766e]
+                    shadow-sm
+                    hover:shadow-md
+                    transition-all duration-300">
 
-                        hover:bg-[#0f766e]
+                    <i data-lucide="save"
+                        class="w-4 h-4"></i>
 
-                        shadow-sm
-                        hover:shadow-md
+                    Simpan Perubahan
 
-                        transition-all duration-300">
+                </button>
 
-                        <i data-lucide="save"
-                            class="w-4 h-4">
-                        </i>
-
-                        Simpan Perubahan
-
-                    </button>
             </div>
 
         </form>

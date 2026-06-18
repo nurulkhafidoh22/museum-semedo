@@ -21,6 +21,11 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
+    <!-- Alpine JS -->
+    <script defer
+    src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js">
+    </script>
+
     <!-- Print CSS -->
     <style>
 
@@ -43,23 +48,25 @@
 
 </head>
 
-<body class="font-sans antialiased bg-transparent">
+<body class="font-sans antialiased bg-transparent overflow-x-hidden">
 
-    <div>
+    <div class="min-h-screen">
 
         <!-- ===================== -->
         <!-- NAVIGATION -->
         <!-- ===================== -->
 
-        <div class="no-print">
-            @include('layouts.navigation')
-        </div>
+        @if (!request()->routeIs('profile.edit'))
+            <div class="no-print">
+                @include('layouts.navigation')
+            </div>
+        @endif
 
         <!-- ===================== -->
         <!-- MAIN CONTENT -->
         <!-- ===================== -->
 
-        <main>
+        <main class="overflow-x-hidden">
 
             @isset($slot)
                 {{ $slot }}

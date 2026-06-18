@@ -16,9 +16,9 @@
 
     @endphp
 
-<div class="min-h-screen py-24 bg-[#f8fafc]">
+<div class="min-h-screen py-20 md:py-24 bg-[#f8fafc] overflow-x-hidden">
 
-    <div class="max-w-5xl mx-auto px-6 space-y-14">
+    <div class="max-w-5xl mx-auto px-4 md:px-6 space-y-14">
 
         <!-- ========================================= -->
         <!-- HERO -->
@@ -34,7 +34,7 @@
             <div class="absolute inset-0 bg-black/20"></div>
 
             <div class="relative grid lg:grid-cols-2 gap-10
-                items-center p-10 lg:p-14">
+                items-center p-6 md:p-10 lg:p-14">
 
                 <!-- TEXT -->
                 <div>
@@ -49,7 +49,7 @@
                     </span>
 
                     <h1 class="mt-6
-                        text-4xl md:text-5xl
+                        text-3xl sm:text-4xl md:text-5xl
                         font-bold leading-tight">
 
                         {{ $title1?->title ?? 'Mengenal' }}
@@ -85,7 +85,8 @@
                             : asset('images/bg-tentang.jpg') }}"
                         alt="Museum Semedo"
                         class="rounded-3xl shadow-2xl
-                        object-cover w-full h-[320px]">
+                            object-cover w-full
+                            h-[240px] sm:h-[320px]">
 
                 </div>
 
@@ -99,7 +100,7 @@
         <!-- ========================================= -->
 
         <section class="bg-white border border-gray-200
-            rounded-3xl shadow-sm p-8 md:p-10">
+                        rounded-3xl shadow-sm p-6 md:p-10">
 
             <div class="mb-10">
 
@@ -496,7 +497,7 @@
             via-[#0f3c44]
             to-[#14535d]
             rounded-[32px]
-            p-10 md:p-12
+            p-6 md:p-10 lg:p-12
             text-white">
 
             <div class="max-w-4xl">

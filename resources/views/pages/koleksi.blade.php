@@ -30,7 +30,7 @@
         ">
     </div>
 
-    <div class="relative max-w-6xl mx-auto px-6 py-24 lg:py-28">
+    <div class="relative max-w-6xl mx-auto px-4 md:px-6 py-20 md:py-24 lg:py-28">
 
         <!-- HEADER -->
         <div class="text-center">
@@ -49,7 +49,7 @@
 
             <!-- TITLE -->
             <h1 class="mt-6
-                text-4xl md:text-5xl lg:text-6xl
+                text-3xl sm:text-4xl md:text-5xl lg:text-6xl
                 font-bold leading-tight tracking-tight">
 
                 Warisan Prasejarah
@@ -85,7 +85,7 @@
                 border border-white/10
                 bg-white/[0.05]
                 backdrop-blur-sm
-                p-6 text-center
+                p-4 md:p-6 text-center
                 transition duration-300
                 hover:bg-white/[0.08]">
 
@@ -104,7 +104,7 @@
                 border border-white/10
                 bg-white/[0.05]
                 backdrop-blur-sm
-                p-6 text-center
+                p-4 md:p-6 text-center
                 transition duration-300
                 hover:bg-white/[0.08]">
 
@@ -123,7 +123,7 @@
                 border border-white/10
                 bg-white/[0.05]
                 backdrop-blur-sm
-                p-6 text-center
+                p-4 md:p-6 text-center
                 transition duration-300
                 hover:bg-white/[0.08]">
 
@@ -142,7 +142,7 @@
                 border border-white/10
                 bg-white/[0.05]
                 backdrop-blur-sm
-                p-6 text-center
+                p-4 md:p-6 text-center
                 transition duration-300
                 hover:bg-white/[0.08]">
 
@@ -167,7 +167,7 @@
 <!-- ========================================= -->
 <section class="bg-[#f8fafc] pt-8 pb-4">
 
-    <div class="max-w-6xl mx-auto px-6">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
 
         <div class="flex flex-col lg:flex-row
             lg:items-center lg:justify-between
@@ -203,7 +203,7 @@
 
                 <!-- SEMUA -->
                 <a href="{{ route('koleksi') }}"
-                    class="px-5 py-2.5 rounded-full
+                    class="px-4 py-2 rounded-full
                     text-sm font-medium
                     border transition-all duration-300
 
@@ -217,7 +217,7 @@
 
                 <!-- PALEONTOLOGI -->
                 <a href="{{ route('koleksi', ['kategori' => 'paleontologi']) }}"
-                    class="px-5 py-2.5 rounded-full
+                    class="px-4 py-2 rounded-full
                     text-sm font-medium
                     border transition-all duration-300
 
@@ -231,7 +231,7 @@
 
                 <!-- PALEOANTROPOLOGI -->
                 <a href="{{ route('koleksi', ['kategori' => 'paleoantropologi']) }}"
-                    class="px-5 py-2.5 rounded-full
+                    class="px-4 py-2 rounded-full
                     text-sm font-medium
                     border transition-all duration-300
 
@@ -314,7 +314,7 @@
                     <img
                         src="{{ asset('storage/' . $item->gambar) }}"
                         alt="{{ $item->judul }}"
-                        class="w-full h-64 object-cover
+                        class="w-full h-56 md:h-64 object-cover"
                         group-hover:scale-110
                         transition duration-700"
                     >
@@ -351,7 +351,7 @@
                 </div>
 
                 <!-- CONTENT -->
-                <div class="p-6">
+                <div class="p-5 md:p-6">
 
                     <h3 class="text-xl font-semibold
                         text-gray-900 mb-3">
@@ -417,7 +417,7 @@
         rounded-full blur-3xl">
     </div>
 
-    <div class="relative max-w-6xl mx-auto px-6">
+    <div class="relative max-w-6xl mx-auto px-4 md:px-6">
 
         <div class="grid lg:grid-cols-2 gap-14 items-center">
 
@@ -436,7 +436,7 @@
                 </span>
 
                 <h2 class="mt-6
-                    text-4xl md:text-5xl
+                    text-3xl sm:text-4xl md:text-5xl
                     font-bold leading-tight">
 
                     Saksikan Langsung
@@ -464,7 +464,7 @@
                 </p>
 
                 <!-- BUTTON -->
-                <div class="mt-10 flex flex-wrap gap-4">
+                <div class="mt-10 flex flex-col sm:flex-row gap-4">
 
                     <a href="/informasi"
                         class="inline-flex items-center justify-center

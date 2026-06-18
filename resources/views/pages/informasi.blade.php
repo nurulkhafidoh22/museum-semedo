@@ -34,9 +34,9 @@ $hargaWna = $tiket->where('section','harga_wna')->first();
 
 @endphp
 
-    <div class="min-h-screen py-24 bg-[#f8fafc]">
+    <div class="min-h-screen py-20 md:py-24 bg-[#f8fafc] overflow-x-hidden">
 
-    <div class="max-w-5xl mx-auto px-6 space-y-16">
+    <div class="max-w-5xl mx-auto px-4 md:px-6 space-y-16">
 
         <!-- ========================================= -->
         <!-- HERO -->
@@ -52,7 +52,7 @@ $hargaWna = $tiket->where('section','harga_wna')->first();
             <div class="absolute inset-0 bg-black/20"></div>
 
             <div class="relative grid lg:grid-cols-2 gap-10
-                items-center p-10 lg:p-14">
+                items-center p-6 md:p-10 lg:p-14">
 
                 <!-- TEXT -->
                 <div>
@@ -67,7 +67,7 @@ $hargaWna = $tiket->where('section','harga_wna')->first();
                     </span>
 
                     <h1 class="mt-6
-                        text-4xl md:text-5xl
+                        text-3xl sm:text-4xl md:text-5xl
                         font-bold leading-tight">
 
                         {{ $title1?->title ?? 'Persiapkan' }}
@@ -83,7 +83,9 @@ $hargaWna = $tiket->where('section','harga_wna')->first();
                     </h1>
 
                     <p class="mt-6 text-white/80
-                        leading-8 max-w-xl text-justify">
+                        text-sm md:text-base
+                        leading-7 md:leading-8
+                        max-w-xl text-justify">
 
                         {{ $description?->title ?? 'Dapatkan informasi lengkap mengenai jam operasional,
                         harga tiket, alur validasi QR Code, serta tata tertib
@@ -102,7 +104,8 @@ $hargaWna = $tiket->where('section','harga_wna')->first();
                             : asset('images/bg-informasi.jpg') }}"
                         alt="Museum Semedo"
                         class="rounded-3xl shadow-2xl
-                        object-cover w-full h-[320px]">
+                        object-cover w-full
+                        h-[240px] sm:h-[320px]">
 
                 </div>
 
@@ -112,7 +115,7 @@ $hargaWna = $tiket->where('section','harga_wna')->first();
 
         <!-- ================= JAM OPERASIONAL ================= -->
         <section class="bg-white border border-gray-200
-                        rounded-2xl shadow-sm p-8 space-y-5">
+                rounded-2xl shadow-sm p-6 md:p-8 space-y-5">
 
             <h2 class="text-2xl font-semibold text-[#0f2a2c]">
                 Jam Operasional
@@ -159,7 +162,7 @@ $hargaWna = $tiket->where('section','harga_wna')->first();
 
                 <!-- Anak -->
                 <div class="bg-white border border-gray-200
-                            rounded-3xl shadow-sm p-8 text-center
+                            rounded-3xl shadow-sm p-6 md:p-8 text-center
                             transition hover:shadow-md hover:-translate-y-1">
 
                     <h3 class="text-gray-500 mb-2">
@@ -178,8 +181,8 @@ $hargaWna = $tiket->where('section','harga_wna')->first();
 
                 <!-- Dewasa (Highlight) -->
                 <div class="bg-[#0f2a2c] text-white
-                            rounded-3xl shadow-xl p-8 text-center
-                            scale-105 relative">
+                            rounded-3xl shadow-xl p-6 md:p-8 text-center
+                            md:scale-105 relative">
 
                     <span class="absolute -top-3 left-1/2
                                  -translate-x-1/2
@@ -193,7 +196,7 @@ $hargaWna = $tiket->where('section','harga_wna')->first();
                         Dewasa
                     </h3>
 
-                    <p class="text-5xl font-bold mb-3">
+                    <p class="text-4xl md:text-5xl font-bold mb-3">
                         Rp {{ number_format($hargaDewasa?->title ?? 8000, 0, ',', '.') }}
                     </p>
 
@@ -205,7 +208,7 @@ $hargaWna = $tiket->where('section','harga_wna')->first();
 
                 <!-- WNA -->
                 <div class="bg-white border border-gray-200
-                            rounded-3xl shadow-sm p-8 text-center
+                            rounded-3xl shadow-sm p-6 md:p-8 text-center
                             transition hover:shadow-md hover:-translate-y-1">
 
                     <h3 class="text-gray-500 mb-2">
@@ -268,12 +271,12 @@ $hargaWna = $tiket->where('section','harga_wna')->first();
                     h-0.5 bg-cyan-200">
                 </div>
 
-                <div class="grid md:grid-cols-5 gap-8 relative">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 relative">
 
                     <!-- STEP 1 -->
                     <div class="text-center">
 
-                        <div class="w-14 h-14 mx-auto
+                        <div class="w-12 h-12 md:w-14 md:h-14 mx-auto
                             rounded-full
                             bg-cyan-50
                             border-2 border-cyan-200
@@ -303,7 +306,7 @@ $hargaWna = $tiket->where('section','harga_wna')->first();
                     <!-- STEP 2 -->
                     <div class="text-center">
 
-                        <div class="w-14 h-14 mx-auto
+                        <div class="w-12 h-12 md:w-14 md:h-14 mx-auto
                             rounded-full
                             bg-cyan-50
                             border-2 border-cyan-200
@@ -333,7 +336,7 @@ $hargaWna = $tiket->where('section','harga_wna')->first();
                     <!-- STEP 3 -->
                     <div class="text-center">
 
-                        <div class="w-14 h-14 mx-auto
+                        <div class="w-12 h-12 md:w-14 md:h-14 mx-auto
                             rounded-full
                             bg-cyan-50
                             border-2 border-cyan-200
@@ -363,7 +366,7 @@ $hargaWna = $tiket->where('section','harga_wna')->first();
                     <!-- STEP 4 -->
                     <div class="text-center">
 
-                        <div class="w-14 h-14 mx-auto
+                        <div class="w-12 h-12 md:w-14 md:h-14 mx-auto
                             rounded-full
                             bg-cyan-50
                             border-2 border-cyan-200
@@ -393,7 +396,7 @@ $hargaWna = $tiket->where('section','harga_wna')->first();
                     <!-- STEP 5 -->
                     <div class="text-center">
 
-                        <div class="w-14 h-14 mx-auto
+                        <div class="w-12 h-12 md:w-14 md:h-14 mx-auto
                             rounded-full
                             bg-cyan-50
                             border-2 border-cyan-200
@@ -425,8 +428,6 @@ $hargaWna = $tiket->where('section','harga_wna')->first();
             </div>
 
         </section>
-
-
 
         <!-- ========================================= -->
         <!-- ATURAN KUNJUNGAN -->
@@ -467,7 +468,7 @@ $hargaWna = $tiket->where('section','harga_wna')->first();
                 <!-- ================================= -->
 
                 <div class="bg-white border border-gray-200
-                    rounded-3xl shadow-sm p-8">
+                            rounded-3xl shadow-sm p-6 md:p-8">
 
                     <div class="flex items-center gap-4 mb-6">
 
@@ -532,7 +533,7 @@ $hargaWna = $tiket->where('section','harga_wna')->first();
                 <!-- ================================= -->
 
                 <div class="bg-white border border-gray-200
-                    rounded-3xl shadow-sm p-8">
+                            rounded-3xl shadow-sm p-6 md:p-8">
 
                     <div class="flex items-center gap-4 mb-6">
 

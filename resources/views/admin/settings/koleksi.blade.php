@@ -2,14 +2,13 @@
 
 @section('content')
 
-<div class="p-8 space-y-8">
+<div class="p-4 md:p-6 lg:p-8 bg-[#f5f7fb] min-h-screen space-y-8">
 
     <!-- HEADER -->
-
-    <div class="flex flex-col md:flex-row
-        md:items-center
-        md:justify-between
-        gap-4">
+    <div class="flex flex-col xl:flex-row
+        xl:items-start
+        xl:justify-between
+        gap-6">
 
         <div>
 
@@ -23,8 +22,8 @@
 
             </p>
 
-            <h1 class="text-3xl font-bold text-gray-900">
-                Data Koleksi
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-900">
+               Data Koleksi
             </h1>
 
             <p class="text-sm text-gray-500 mt-2">
@@ -34,26 +33,19 @@
         </div>
 
         <a href="{{ route('admin.settings.koleksi.create') }}"
-            class="inline-flex items-center gap-2
-
+            class="w-full sm:w-auto
+            inline-flex items-center justify-center gap-2
             px-5 py-2.5
-
             rounded-xl
-
             bg-[#062b30]
             text-white
-
             font-medium
-
             hover:bg-[#0f766e]
-
             shadow-sm
             hover:shadow-md
-
             transition-all duration-300">
 
-            <i data-lucide="plus"
-                class="w-4 h-4"></i>
+            <i data-lucide="plus" class="w-4 h-4"></i>
 
             Tambah Koleksi
 
@@ -61,24 +53,27 @@
 
     </div>
 
+
     <!-- STATISTIK -->
+    <div class="mb-8">
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="w-full sm:w-96
+            bg-cyan-50/60
+            border border-cyan-100
+            rounded-2xl
+            p-5">
 
-        <div class="bg-white
-            border border-gray-200
-            rounded-3xl
-            p-6">
-
-            <p class="text-sm text-gray-500">
+            <p class="text-sm text-gray-600">
                 Total Koleksi
             </p>
 
             <h2 class="text-3xl font-bold text-[#062b30] mt-2">
-
                 {{ $koleksi->count() }}
-
             </h2>
+
+            <p class="text-xs text-cyan-700 mt-3">
+                Koleksi aktif yang ditampilkan pada website
+            </p>
 
         </div>
 
@@ -104,7 +99,7 @@
 
             <div class="overflow-x-auto">
 
-                <table class="w-full">
+                <table class="min-w-[900px] w-full">
 
                     <thead>
 
@@ -144,13 +139,16 @@
 
                                 <img
                                     src="{{ asset('storage/'.$item->gambar) }}"
-                                    class="w-20 h-14 object-cover rounded-xl border">
-
+                                    class="w-24 h-16
+                                        object-cover
+                                        rounded-xl
+                                        border border-gray-200
+                                        shadow-sm">
                             </td>
 
                             <td class="px-6 py-4">
 
-                                <p class="font-semibold text-gray-900">
+                                <p class="font-semibold text-gray-900 leading-snug">
 
                                     {{ $item->judul }}
 
@@ -188,13 +186,19 @@
                                     gap-2">
 
                                     <a href="{{ route('admin.settings.koleksi.edit', $item->id) }}"
-                                        class="px-3 py-2
-                                        rounded-lg
+                                        class="inline-flex items-center gap-1.5
+                                            px-2.5 py-1.5
+                                            rounded-lg
+                                            text-sm
 
-                                        bg-amber-50
-                                        text-amber-700
+                                            bg-amber-50
+                                            text-amber-700
 
-                                        hover:bg-amber-100">
+                                            hover:bg-amber-100
+                                            transition">
+
+                                        <i data-lucide="pencil"
+                                            class="w-4 h-4"></i>
 
                                         Edit
 
@@ -203,19 +207,28 @@
                                     <form
                                         action="{{ route('admin.settings.koleksi.destroy', $item->id) }}"
                                         method="POST"
-                                        onsubmit="return confirm('Yakin ingin menghapus koleksi ini?')"
-                                    >
+                                        class="form-delete-koleksi">
                                         @csrf
                                         @method('DELETE')
 
                                         <button
                                             type="submit"
-                                            class="px-3 py-2
+                                            class="inline-flex items-center gap-1.5
+                                            px-2.5 py-1.5
                                             rounded-lg
+                                            text-sm
+
                                             bg-red-50
                                             text-red-700
-                                            hover:bg-red-100">
+
+                                            hover:bg-red-100
+                                            transition">
+
+                                            <i data-lucide="trash-2"
+                                                class="w-4 h-4"></i>
+
                                             Hapus
+
                                         </button>
                                     </form>
 
@@ -261,9 +274,9 @@
 
                 </h3>
 
-                <p class="text-gray-500 mt-2">
+                <p class="text-gray-500 mt-2 max-w-md mx-auto">
 
-                    Tambahkan koleksi pertama Museum Semedo untuk ditampilkan pada website.
+                    Tambahkan koleksi pertama Museum Semedo untuk mulai membangun galeri digital museum yang dapat diakses pengunjung.
 
                 </p>
 
@@ -274,5 +287,74 @@
     </div>
 
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if(session('success'))
+
+<script>
+
+Swal.fire({
+    icon: 'success',
+    title: 'Berhasil',
+    text: '{{ session('success') }}',
+    confirmButtonColor: '#062b30'
+});
+
+</script>
+
+@endif
+
+@if(session('error'))
+
+<script>
+
+Swal.fire({
+    icon: 'error',
+    title: 'Gagal',
+    text: '{{ session('error') }}',
+    confirmButtonColor: '#dc2626'
+});
+
+</script>
+
+@endif
+
+<script>
+
+document.querySelectorAll('.form-delete-koleksi')
+.forEach(form => {
+
+    form.addEventListener('submit', function(e){
+
+        e.preventDefault();
+
+        Swal.fire({
+
+            title: 'Hapus Koleksi?',
+            text: 'Data koleksi akan dihapus permanen.',
+            icon: 'warning',
+
+            showCancelButton: true,
+
+            confirmButtonColor: '#dc2626',
+            cancelButtonColor: '#6b7280',
+
+            confirmButtonText: 'Ya, Hapus',
+            cancelButtonText: 'Batal'
+
+        }).then((result) => {
+
+            if(result.isConfirmed){
+                form.submit();
+            }
+
+        });
+
+    });
+
+});
+
+</script>
 
 @endsection

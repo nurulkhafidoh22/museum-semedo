@@ -31,7 +31,7 @@
     <!-- MINI STATISTICS -->
     <!-- ===================================================== -->
 
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 mb-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 mb-8">
         
         <!-- TOTAL -->
         <div class="rounded-2xl border border-cyan-100
@@ -116,7 +116,11 @@
 
         <form method="GET"
             action="{{ route('admin.pengunjung') }}"
-            class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-3">
+            class="grid
+                grid-cols-1
+                sm:grid-cols-2
+                xl:grid-cols-5
+                gap-3">
 
             <!-- SEARCH -->
             <div class="xl:col-span-2">
@@ -221,7 +225,10 @@
             </div>
 
             <!-- BUTTON -->
-            <div class="xl:col-span-5 flex flex-wrap gap-3 pt-2">
+            <div class="xl:col-span-5
+                        flex flex-col sm:flex-row
+                        gap-3
+                        pt-2">
 
                 <!-- FILTER -->
                 <button
@@ -283,7 +290,9 @@
 
                 </div>
 
-                <div class="flex items-center gap-3">
+                <div class="flex flex-col sm:flex-row
+                            sm:items-center
+                            gap-3">
 
                     <div class="text-sm text-gray-400">
                         {{ $tickets->total() }} data
@@ -292,6 +301,7 @@
                     <!-- EXPORT -->
                     <a href="{{ route('admin.pengunjung.export', request()->query()) }}"
                         class="inline-flex items-center gap-2
+                        w-full sm:w-auto justify-center
                         px-4 py-2
                         rounded-lg
                         border border-gray-300
@@ -318,7 +328,7 @@
         <!-- TABLE -->
         <div class="overflow-x-auto">
 
-            <table class="w-full">
+            <table class="w-full min-w-[900px]">
 
                 <thead class="bg-gray-50">
 
@@ -357,6 +367,7 @@
                     </th>
 
                 </tr>
+                </thead>
 
                 <tbody class="divide-y divide-gray-100">
 
@@ -564,7 +575,7 @@
         <!-- PAGINATION -->
         @if($tickets->hasPages())
 
-        <div class="px-6 py-5 border-t border-gray-100">
+        <div class="px-4 md:px-6 py-5 border-t border-gray-100 overflow-x-auto">
 
             {{ $tickets->links() }}
 

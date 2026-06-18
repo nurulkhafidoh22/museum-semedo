@@ -36,7 +36,7 @@ $copyright = $pages->where('section', 'copyright')->first();
 
         </p>
 
-        <h1 class="text-3xl font-bold text-gray-900">
+        <h1 class="text-2xl md:text-3xl font-bold text-gray-900">
             Pengaturan Footer
         </h1>
 
@@ -50,6 +50,7 @@ $copyright = $pages->where('section', 'copyright')->first();
 
         <div class="bg-green-50
             border border-green-200
+            text-sm
             text-green-700
             px-4 py-3
             rounded-xl">
@@ -65,6 +66,7 @@ $copyright = $pages->where('section', 'copyright')->first();
         <div class="bg-red-50
             border border-red-200
             text-red-700
+            text-sm
             px-4 py-3
             rounded-xl">
 
@@ -85,7 +87,7 @@ $copyright = $pages->where('section', 'copyright')->first();
     <div class="bg-white
         border border-gray-200
         rounded-3xl
-        p-8">
+        p-5 md:p-8">
 
         <form
             action="{{ route('admin.settings.update-footer') }}"
@@ -95,7 +97,7 @@ $copyright = $pages->where('section', 'copyright')->first();
 
             <div class="space-y-6">
 
-                <h2 class="text-xl font-semibold text-gray-900">
+                <h2 class="text-lg font-semibold text-gray-900">
                     Informasi Museum
                 </h2>
 
@@ -110,13 +112,21 @@ $copyright = $pages->where('section', 'copyright')->first();
                     <textarea
                         name="description"
                         rows="5"
-                        class="w-full border border-gray-300 rounded-xl px-4 py-3">{{ old('description', $description?->title) }}</textarea>
+                        class="w-full
+                            border border-gray-300
+                            rounded-xl
+                            px-4 py-3
+
+                            focus:outline-none
+                            focus:ring-2
+                            focus:ring-[#0f766e]/20
+                            focus:border-[#0f766e]">{{ old('description', $description?->title) }}</textarea>
 
                 </div>
 
                 <hr class="my-8">
 
-                <h2 class="text-xl font-semibold text-gray-900">
+                <h2 class="text-lg font-semibold text-gray-900">
                     Informasi Kontak
                 </h2>
 
@@ -132,11 +142,18 @@ $copyright = $pages->where('section', 'copyright')->first();
                         type="text"
                         name="alamat"
                         value="{{ old('alamat', $alamat?->title) }}"
-                        class="w-full border border-gray-300 rounded-xl px-4 py-3">
+                        class="w-full
+                            border border-gray-300
+                            rounded-xl
+                            px-4 py-3
 
+                            focus:outline-none
+                            focus:ring-2
+                            focus:ring-[#0f766e]/20
+                            focus:border-[#0f766e]">
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                     <div>
 
@@ -150,8 +167,15 @@ $copyright = $pages->where('section', 'copyright')->first();
                             type="text"
                             name="telepon"
                             value="{{ old('telepon', $telepon?->title) }}"
-                            class="w-full border border-gray-300 rounded-xl px-4 py-3">
+                            class="w-full
+                                border border-gray-300
+                                rounded-xl
+                                px-4 py-3
 
+                                focus:outline-none
+                                focus:ring-2
+                                focus:ring-[#0f766e]/20
+                                focus:border-[#0f766e]">
                     </div>
 
                     <div>
@@ -166,15 +190,22 @@ $copyright = $pages->where('section', 'copyright')->first();
                             type="email"
                             name="email"
                             value="{{ old('email', $email?->title) }}"
-                            class="w-full border border-gray-300 rounded-xl px-4 py-3">
+                            class="w-full
+                                border border-gray-300
+                                rounded-xl
+                                px-4 py-3
 
+                                focus:outline-none
+                                focus:ring-2
+                                focus:ring-[#0f766e]/20
+                                focus:border-[#0f766e]">
                     </div>
 
                 </div>
 
                 <hr class="my-8">
 
-                <h2 class="text-xl font-semibold text-gray-900">
+                <h2 class="text-lg font-semibold text-gray-900">
                     Media Sosial
                 </h2>
 
@@ -190,8 +221,15 @@ $copyright = $pages->where('section', 'copyright')->first();
                         type="text"
                         name="instagram"
                         value="{{ old('instagram', $instagram?->title) }}"
-                        class="w-full border border-gray-300 rounded-xl px-4 py-3">
+                        class="w-full
+                            border border-gray-300
+                            rounded-xl
+                            px-4 py-3
 
+                            focus:outline-none
+                            focus:ring-2
+                            focus:ring-[#0f766e]/20
+                            focus:border-[#0f766e]">
                 </div>
 
                 <div>
@@ -206,8 +244,15 @@ $copyright = $pages->where('section', 'copyright')->first();
                         type="text"
                         name="tiktok"
                         value="{{ old('tiktok', $tiktok?->title) }}"
-                        class="w-full border border-gray-300 rounded-xl px-4 py-3">
+                        class="w-full
+                            border border-gray-300
+                            rounded-xl
+                            px-4 py-3
 
+                            focus:outline-none
+                            focus:ring-2
+                            focus:ring-[#0f766e]/20
+                            focus:border-[#0f766e]">
                 </div>
 
                 <div>
@@ -222,13 +267,20 @@ $copyright = $pages->where('section', 'copyright')->first();
                         type="text"
                         name="youtube"
                         value="{{ old('youtube', $youtube?->title) }}"
-                        class="w-full border border-gray-300 rounded-xl px-4 py-3">
+                        class="w-full
+                            border border-gray-300
+                            rounded-xl
+                            px-4 py-3
 
+                            focus:outline-none
+                            focus:ring-2
+                            focus:ring-[#0f766e]/20
+                            focus:border-[#0f766e]">
                 </div>
 
                 <hr class="my-8">
 
-                <h2 class="text-xl font-semibold text-gray-900">
+                <h2 class="text-lg font-semibold text-gray-900">
                     Copyright
                 </h2>
 
@@ -244,7 +296,15 @@ $copyright = $pages->where('section', 'copyright')->first();
                         type="text"
                         name="copyright"
                         value="{{ old('copyright', $copyright?->title) }}"
-                        class="w-full border border-gray-300 rounded-xl px-4 py-3">
+                        class="w-full
+                            border border-gray-300
+                            rounded-xl
+                            px-4 py-3
+
+                            focus:outline-none
+                            focus:ring-2
+                            focus:ring-[#0f766e]/20
+                            focus:border-[#0f766e]">
 
                 </div>
 
@@ -252,9 +312,13 @@ $copyright = $pages->where('section', 'copyright')->first();
 
                     <button
                         type="submit"
-                        class="inline-flex items-center gap-2
+                        class="w-full sm:w-auto
+                        inline-flex items-center justify-center gap-2
+
                         px-5 py-2.5
+
                         rounded-xl
+
                         bg-[#062b30]
                         text-white
                         font-medium

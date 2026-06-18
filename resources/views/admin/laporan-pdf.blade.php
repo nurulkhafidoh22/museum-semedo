@@ -15,7 +15,7 @@ body{
 }
 
 /* =========================================
-HEADER
+HEADER DAN FOOTER
 ========================================= */
 
 .header{
@@ -76,6 +76,16 @@ HEADER
     margin-top:2px;
 }
 
+.footer{
+    margin-top:40px;
+}
+
+.signature{
+    width:250px;
+    margin-left:auto;
+    text-align:center;
+}
+
 /* =========================================
 INFORMASI LAPORAN
 ========================================= */
@@ -112,6 +122,12 @@ SECTION
     margin-bottom:8px;
 }
 
+.section-subtitle{
+    font-size:11px;
+    color:#6b7280;
+    margin-bottom:10px;
+}
+
 /* =========================================
 SUMMARY CARD
 ========================================= */
@@ -123,7 +139,7 @@ SUMMARY CARD
 .summary-table{
     width:100%;
     border-collapse:separate;
-    border-spacing:8px;
+    border-spacing:5px;
 }
 
 .summary-card{
@@ -186,6 +202,8 @@ td{
     border:1px solid #d1d5db;
     padding:7px;
     font-size:10px;
+    word-wrap:break-word;
+    overflow-wrap:break-word;
 }
 
 .text-center{
@@ -201,6 +219,10 @@ thead{
 }
 
 tr{
+    page-break-inside:avoid;
+}
+
+tbody tr{
     page-break-inside:avoid;
 }
 
@@ -316,7 +338,7 @@ RINGKASAN EKSEKUTIF
 
         <tr>
 
-            <td width="20%">
+            <td width="25%">
 
                 <div class="summary-card">
 
@@ -336,7 +358,7 @@ RINGKASAN EKSEKUTIF
 
             </td>
 
-            <td width="20%">
+            <td width="25%">
 
                 <div class="summary-card">
 
@@ -356,7 +378,7 @@ RINGKASAN EKSEKUTIF
 
             </td>
 
-            <td width="20%">
+            <td width="25%">
 
                 <div class="summary-card">
 
@@ -376,7 +398,7 @@ RINGKASAN EKSEKUTIF
 
             </td>
 
-            <td width="20%">
+            <td width="25%">
 
                 <div class="summary-card">
 
@@ -479,10 +501,10 @@ DATA PENGUNJUNG
             <tr>
 
                 <th width="5%">No</th>
-                <th>Nama</th>
-                <th>Provinsi</th>
-                <th>Usia</th>
-                <th>Instansi</th>
+                <th width="18%">Nama</th>
+                <th width="18%">Provinsi</th>
+                <th width="10%">Usia</th>
+                <th width="20%">Instansi</th>
                 <th>Frekuensi</th>
                 <th width="10%">Jumlah</th>
                 <th width="12%">Tanggal</th>

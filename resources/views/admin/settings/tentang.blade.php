@@ -32,7 +32,7 @@ $image = $pages->where('section', 'image')->first();
 
         </p>
 
-        <h1 class="text-3xl font-bold text-gray-900">
+        <h1 class="text-2xl md:text-3xl font-bold text-gray-900">
             Pengaturan Halaman Tentang
         </h1>
 
@@ -46,6 +46,7 @@ $image = $pages->where('section', 'image')->first();
 
         <div class="bg-green-50
             border border-green-200
+            text-sm
             text-green-700
             px-4 py-3
             rounded-xl">
@@ -61,8 +62,10 @@ $image = $pages->where('section', 'image')->first();
         <div class="bg-red-50
             border border-red-200
             text-red-700
+            text-sm
             px-4 py-3
-            rounded-xl">
+            rounded-xl
+            mb-6">
 
             <ul class="list-disc pl-5">
 
@@ -81,7 +84,7 @@ $image = $pages->where('section', 'image')->first();
     <div class="bg-white
         border border-gray-200
         rounded-3xl
-        p-8">
+        p-5 md:p-8">
 
         <form
             action="{{ route('admin.settings.update-tentang') }}"
@@ -106,8 +109,14 @@ $image = $pages->where('section', 'image')->first();
                         type="text"
                         name="badge"
                         value="{{ old('badge', $badge?->title) }}"
-                        class="w-full border border-gray-300 rounded-xl px-4 py-3">
-
+                        class="w-full
+                            border border-gray-300
+                            rounded-xl
+                            px-4 py-3
+                            focus:outline-none
+                            focus:ring-2
+                            focus:ring-[#0f766e]/20
+                            focus:border-[#0f766e]">
                 </div>
 
                 <!-- JUDUL 1 -->
@@ -124,8 +133,14 @@ $image = $pages->where('section', 'image')->first();
                         type="text"
                         name="title_1"
                         value="{{ old('title_1', $title1?->title) }}"
-                        class="w-full border border-gray-300 rounded-xl px-4 py-3">
-
+                        class="w-full
+                            border border-gray-300
+                            rounded-xl
+                            px-4 py-3
+                            focus:outline-none
+                            focus:ring-2
+                            focus:ring-[#0f766e]/20
+                            focus:border-[#0f766e]">
                 </div>
 
                 <!-- JUDUL 2 -->
@@ -142,8 +157,14 @@ $image = $pages->where('section', 'image')->first();
                         type="text"
                         name="title_2"
                         value="{{ old('title_2', $title2?->title) }}"
-                        class="w-full border border-gray-300 rounded-xl px-4 py-3">
-
+                        class="w-full
+                            border border-gray-300
+                            rounded-xl
+                            px-4 py-3
+                            focus:outline-none
+                            focus:ring-2
+                            focus:ring-[#0f766e]/20
+                            focus:border-[#0f766e]">
                 </div>
 
                 <!-- JUDUL 3 -->
@@ -160,8 +181,14 @@ $image = $pages->where('section', 'image')->first();
                         type="text"
                         name="title_3"
                         value="{{ old('title_3', $title3?->title) }}"
-                        class="w-full border border-gray-300 rounded-xl px-4 py-3">
-
+                        class="w-full
+                            border border-gray-300
+                            rounded-xl
+                            px-4 py-3
+                            focus:outline-none
+                            focus:ring-2
+                            focus:ring-[#0f766e]/20
+                            focus:border-[#0f766e]">
                 </div>
 
                 <!-- DESKRIPSI -->
@@ -177,8 +204,14 @@ $image = $pages->where('section', 'image')->first();
                     <textarea
                         name="description"
                         rows="6"
-                        class="w-full border border-gray-300 rounded-xl px-4 py-3">{{ old('description', $description?->title) }}</textarea>
-
+                        class="w-full
+                            border border-gray-300
+                            rounded-xl
+                            px-4 py-3
+                            focus:outline-none
+                            focus:ring-2
+                            focus:ring-[#0f766e]/20
+                            focus:border-[#0f766e]">{{ old('description', $description?->title) }}</textarea>
                 </div>
 
                 <!-- GAMBAR -->
@@ -204,8 +237,11 @@ $image = $pages->where('section', 'image')->first();
 
                         <img
                             src="{{ asset('storage/'.$image->image) }}?v={{ $image->updated_at?->timestamp }}"
-                            class="w-full max-w-md rounded-2xl border">
-
+                            class="w-full
+                                max-w-md
+                                rounded-2xl
+                                border border-gray-200
+                                shadow-sm">
                     </div>
 
                 @endif
@@ -216,7 +252,8 @@ $image = $pages->where('section', 'image')->first();
 
                     <button
                         type="submit"
-                        class="inline-flex items-center gap-2
+                        class="flex w-full sm:w-auto
+                        items-center justify-center gap-2
                         px-5 py-2.5
                         rounded-xl
 

@@ -2,7 +2,10 @@
 
 @section('content')
 
-<div class="p-6 bg-[#f5f7fb] min-h-screen">
+<div class="bg-[#f5f7fb]
+            min-h-screen
+            p-4 md:p-6
+            overflow-x-hidden">
 
     <!-- =========================
     HEADER
@@ -26,7 +29,12 @@
         </div>
 
         <!-- RIGHT -->
-        <div class="bg-white border border-gray-200 rounded-2xl px-5 py-4 min-w-[240px]">
+        <div class="bg-white
+            border border-gray-200
+            rounded-2xl
+            px-5 py-4
+            shrink-0
+            lg:min-w-[280px]">
 
             <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">
                 Hari Ini
@@ -56,13 +64,16 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 mb-8">
 
         <!-- TOTAL -->
-        <div class="bg-white rounded-2xl border border-gray-200 p-6">
+        <div class="bg-white
+                    rounded-2xl
+                    border border-gray-200
+                    p-5 md:p-6">
 
             <p class="text-sm text-gray-500">
                 Pengunjung Hari Ini
             </p>
 
-            <h2 class="text-4xl font-bold text-gray-900 mt-3">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3">
                 {{ $todayVisitors }}
             </h2>
 
@@ -73,13 +84,16 @@
         </div>
 
         <!-- ONLINE -->
-        <div class="bg-white rounded-2xl border border-gray-200 p-6">
+        <div class="bg-white
+                    rounded-2xl
+                    border border-gray-200
+                    p-5 md:p-6">
 
             <p class="text-sm text-gray-500">
                 Tiket Online
             </p>
 
-            <h2 class="text-4xl font-bold text-[#2563eb] mt-3">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#2563eb] mt-3">
                 {{ $online }}
             </h2>
 
@@ -90,13 +104,16 @@
         </div>
 
         <!-- OFFLINE -->
-        <div class="bg-white rounded-2xl border border-gray-200 p-6">
+        <div class="bg-white
+                    rounded-2xl
+                    border border-gray-200
+                    p-5 md:p-6">
 
             <p class="text-sm text-gray-500">
                 Tiket Offline
             </p>
 
-            <h2 class="text-4xl font-bold text-[#d97706] mt-3">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#d97706] mt-3">
                 {{ $offline }}
             </h2>
 
@@ -108,7 +125,11 @@
 
         <!-- VALIDASI -->
         <div class="bg-gradient-to-br from-[#062b30] to-[#0b3d45]
-            rounded-2xl p-6 text-white relative overflow-hidden">
+                    rounded-2xl
+                    p-5 md:p-6
+                    text-white
+                    relative
+                    overflow-hidden">
 
             <div class="absolute right-0 top-0 w-32 h-32 bg-cyan-400/10 rounded-full -mr-10 -mt-10"></div>
 
@@ -116,7 +137,7 @@
                 Validasi Hari Ini
             </p>
 
-            <h2 class="text-4xl font-bold mt-3">
+            <h2 class="text-3xl md:text-4xl font-bold mt-3">
                 {{ $checkedIn }}
             </h2>
 
@@ -148,7 +169,11 @@
         <!-- =========================
         MAIN CHART
         ========================== -->
-        <div class="xl:col-span-2 bg-white rounded-2xl border border-gray-200 p-6">
+        <div class="xl:col-span-2
+            bg-white
+            rounded-2xl
+            border border-gray-200
+            p-5 md:p-6">
 
             <div class="flex items-center justify-between mb-6">
 
@@ -170,7 +195,7 @@
 
             </div>
 
-            <div class="h-[320px]">
+            <div class="h-[260px] sm:h-[320px]">
 
                 <canvas id="trendChart"></canvas>
 
@@ -184,7 +209,10 @@
         <div class="space-y-6">
 
             <!-- INSIGHT -->
-            <div class="bg-white rounded-2xl border border-gray-200 p-6">
+            <div class="bg-white
+                        rounded-2xl
+                        border border-gray-200
+                        p-5 md:p-6">
 
                 <div class="mb-6">
 
@@ -261,7 +289,10 @@
             </div>
 
             <!-- QUICK INFO -->
-            <div class="bg-white rounded-2xl border border-gray-200 p-6">
+            <div class="bg-white
+                        rounded-2xl
+                        border border-gray-200
+                        p-5 md:p-6">
 
                 <div class="mb-5">
 
@@ -277,7 +308,7 @@
 
                 <div class="space-y-4">
 
-                    <div class="flex justify-between items-center">
+                    <div class="flex justify-between items-center gap-4">
 
                         <span class="text-sm text-gray-500">
                             Total Tiket
@@ -289,7 +320,7 @@
 
                     </div>
 
-                    <div class="flex justify-between items-center">
+                    <div class="flex justify-between items-center gap-4">
 
                         <span class="text-sm text-gray-500">
                             Validasi Berhasil
@@ -301,7 +332,7 @@
 
                     </div>
 
-                    <div class="flex justify-between items-center">
+                    <div class="flex justify-between items-center gap-4">
 
                         <span class="text-sm text-gray-500">
                             Menunggu Validasi

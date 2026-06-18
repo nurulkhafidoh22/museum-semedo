@@ -8,10 +8,10 @@
     <!-- HEADER -->
     <!-- ===================================================== -->
 
-    <div class="flex flex-col lg:flex-row
-        lg:items-start
-        lg:justify-between
-        gap-6 mb-8">
+    <div class="flex flex-col xl:flex-row
+            xl:items-start
+            xl:justify-between
+            gap-6 mb-8">
 
         <!-- TITLE -->
         <div class="pt-3">
@@ -64,7 +64,7 @@
                 <form method="GET"
                     action="{{ route('admin.laporan') }}">
 
-                    <div class="flex flex-wrap items-end gap-3">
+                    <div class="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-end gap-3">
 
                         <div>
 
@@ -75,7 +75,8 @@
                             <input type="date"
                                 name="start_date"
                                 value="{{ $start }}"
-                                class="border border-gray-200
+                                class="w-full sm:w-auto
+                                border border-gray-200
                                 rounded-lg
                                 px-3 py-2
                                 text-sm
@@ -93,7 +94,8 @@
                             <input type="date"
                                 name="end_date"
                                 value="{{ $end }}"
-                                class="border border-gray-200
+                                class="w-full sm:w-auto
+                                border border-gray-200
                                 rounded-lg
                                 px-3 py-2
                                 text-sm
@@ -102,7 +104,7 @@
 
                         </div>
 
-                        <div class="flex gap-3">
+                        <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
 
                             <button
                                 type="submit"
@@ -443,7 +445,7 @@
 
             </div>
 
-            <div class="h-[320px]">
+            <div class="h-[260px] sm:h-[320px]">
                 <canvas id="bulananChart"></canvas>
             </div>
 
@@ -478,7 +480,7 @@
 
             </div>
 
-            <div class="h-[320px]">
+            <div class="h-[260px] sm:h-[320px]">
                 <canvas id="kumulatifChart"></canvas>
             </div>
 
@@ -523,14 +525,14 @@
             <!-- TABLE -->
             <div class="overflow-x-auto">
 
-                <table class="w-full table-fixed text-sm">
+                <table class="min-w-[900px] w-full text-sm">
 
                     <thead class="bg-gray-50 border-b border-gray-100">
 
                         <tr>
 
                             <!-- NAMA -->
-                            <th class="w-[18%] px-5 py-4 text-left
+                            <th class="px-5 py-4 text-left
                                 text-xs font-semibold uppercase
                                 tracking-wide text-gray-500">
 
@@ -539,7 +541,7 @@
                             </th>
 
                             <!-- PROVINSI -->
-                            <th class="w-[15%] px-5 py-4 text-left
+                            <th class="px-5 py-4 text-left
                                 text-xs font-semibold uppercase
                                 tracking-wide text-gray-500">
 
@@ -548,7 +550,7 @@
                             </th>
 
                             <!-- USIA -->
-                            <th class="w-[10%] px-5 py-4 text-center
+                            <th class="px-5 py-4 text-center
                                 text-xs font-semibold uppercase
                                 tracking-wide text-gray-500">
 
@@ -557,7 +559,7 @@
                             </th>
 
                             <!-- INSTANSI -->
-                            <th class="w-[22%] px-5 py-4 text-left
+                            <th class="px-5 py-4 text-left
                                 text-xs font-semibold uppercase
                                 tracking-wide text-gray-500">
 
@@ -566,7 +568,7 @@
                             </th>
 
                             <!-- FREKUENSI -->
-                            <th class="w-[12%] px-5 py-4 text-center
+                            <th class="px-5 py-4 text-center
                                 text-xs font-semibold uppercase
                                 tracking-wide text-gray-500">
 
@@ -575,7 +577,7 @@
                             </th>
 
                             <!-- JUMLAH -->
-                            <th class="w-[10%] px-5 py-4 text-center
+                            <th class="px-5 py-4 text-center
                                 text-xs font-semibold uppercase
                                 tracking-wide text-gray-500">
 
@@ -584,7 +586,7 @@
                             </th>
 
                             <!-- TANGGAL -->
-                            <th class="w-[13%] px-5 py-4 text-center
+                            <th class="px-5 py-4 text-center
                                 text-xs font-semibold uppercase
                                 tracking-wide text-gray-500">
 
@@ -821,7 +823,7 @@
 
         <div class="overflow-x-auto rounded-2xl border border-gray-100">
 
-            <table class="w-full text-sm">
+            <table class="min-w-[500px] w-full text-sm">
 
                 <thead class="bg-gray-50 border-b border-gray-100">
 
@@ -944,7 +946,7 @@
 
         <div class="overflow-x-auto rounded-2xl border border-gray-100">
 
-            <table class="w-full text-sm">
+            <table class="min-w-[500px] w-full text-sm">
 
                 <thead class="bg-gray-50 border-b border-gray-100">
 

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="p-6">
+<div class="p-4 md:p-6">
 
     <!-- HEADER -->
     <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6 gap-3">
@@ -18,9 +18,17 @@
         </div>
 
         <a href="{{ route('admin.pengunjung') }}"
-            class="inline-flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium
-            text-gray-600 border border-gray-200 hover:bg-gray-50 hover:text-gray-800 transition">
-
+            class="w-full sm:w-auto
+                inline-flex items-center justify-center gap-2
+                px-3 py-2
+                rounded-lg
+                text-sm font-medium
+                text-gray-600
+                border border-gray-200
+                hover:bg-gray-50
+                hover:text-gray-800
+                transition">
+    
             <svg xmlns="http://www.w3.org/2000/svg"
                 class="w-4 h-4"
                 fill="none"
@@ -48,7 +56,10 @@
             <!-- LEFT -->
             <div>
 
-                <h2 class="text-xl font-semibold text-gray-800">
+                <h2 class="text-lg md:text-xl
+                            font-semibold
+                            text-gray-800
+                            break-words">
                     {{ $ticket->nama }}
                 </h2>
 
@@ -85,7 +96,7 @@
                 Informasi Pengunjung
             </h2>
 
-            <div class="space-y-5 text-sm">
+            <div class="space-y-4 text-sm">
 
                 <!-- KATEGORI TIKET -->
                 <div>
@@ -294,7 +305,10 @@
                         Kode Tiket
                     </p>
 
-                    <p class="font-mono text-gray-800 break-all">
+                    <p class="font-mono
+                            text-xs md:text-sm
+                            text-gray-800
+                            break-all">
                         {{ $ticket->hash }}
                     </p>
 

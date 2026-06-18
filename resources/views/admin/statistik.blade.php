@@ -55,9 +55,8 @@
 
             <div class="flex flex-wrap items-end gap-3">
 
-                <!-- DARI -->
+                <!-- TANGGAL MULAI -->
                 <div>
-
                     <label class="block text-xs text-gray-500 mb-1">
                         Tanggal Mulai
                     </label>
@@ -72,12 +71,10 @@
                         text-sm
                         focus:ring-0
                         focus:border-[#0f766e]">
-
                 </div>
 
-                <!-- SAMPAI -->
+                <!-- TANGGAL AKHIR -->
                 <div>
-
                     <label class="block text-xs text-gray-500 mb-1">
                         Tanggal Akhir
                     </label>
@@ -92,7 +89,6 @@
                         text-sm
                         focus:ring-0
                         focus:border-[#0f766e]">
-
                 </div>
 
                 <!-- BUTTON -->
@@ -109,9 +105,7 @@
                         hover:bg-[#041f23]
                         transition">
 
-                        <i data-lucide="filter"
-                            class="w-4 h-4"></i>
-
+                        <i data-lucide="filter" class="w-4 h-4"></i>
                         Terapkan
 
                     </button>
@@ -127,9 +121,7 @@
                         hover:bg-gray-100
                         transition">
 
-                        <i data-lucide="rotate-ccw"
-                            class="w-4 h-4"></i>
-
+                        <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
                         Reset
 
                     </a>
@@ -265,20 +257,20 @@
             <!-- FILTER INFO -->
             <div class="mt-5 text-xs text-gray-400 space-y-1">
 
-                @if(request('tanggal_awal'))
+                @if(request('start_date'))
                     <p>
                         Tanggal Awal:
                         <span class="font-medium">
-                            {{ request('tanggal_awal') }}
+                            {{ request('start_date') }}
                         </span>
                     </p>
                 @endif
 
-                @if(request('tanggal_akhir'))
+                @if(request('end_date'))
                     <p>
                         Tanggal Akhir:
                         <span class="font-medium">
-                            {{ request('tanggal_akhir') }}
+                            {{ request('end_date') }}
                         </span>
                     </p>
                 @endif
@@ -326,8 +318,7 @@
     <div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
 
         <!-- LINE -->
-        <div class="xl:col-span-2 bg-white border border-gray-200
-            rounded-3xl p-6">
+        <div class="xl:col-span-2 bg-white border border-gray-200 rounded-3xl p-6 md:p-8">
 
             <div class="mb-6">
 
@@ -341,7 +332,9 @@
 
             </div>
 
-            <canvas id="trenChart" height="120"></canvas>
+            <div class="relative h-[300px] md:h-[350px]">
+                <canvas id="trenChart"></canvas>
+            </div>
 
         </div>
 
@@ -361,7 +354,9 @@
 
             </div>
 
-            <canvas id="jenisChart"></canvas>
+            <div class="relative h-[280px] md:h-[340px]">
+                <canvas id="jenisChart"></canvas>
+            </div>
 
         </div>
 
@@ -419,6 +414,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             plugins: {
                 legend: {
                     display: false
@@ -479,6 +475,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     }]
                 },
                 options: {
+                    maintainAspectRatio: false,
                     plugins: {
                         legend: {
                             position: 'bottom'

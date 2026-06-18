@@ -12,17 +12,20 @@
 
     @endphp
 
-    <section class="py-24 bg-[#f3f4f1] min-h-screen">
-    <x-step-indicator step="1" />
+    <section class="py-20 md:py-24 bg-[#f3f4f1] min-h-screen overflow-x-hidden">
 
-    <div class="max-w-4xl mx-auto px-6">
+        <div class="mb-8 md:mb-12">
+            <x-step-indicator step="1" />
+        </div>
+
+    <div class="max-w-4xl mx-auto px-4 md:px-6">
 
         <!-- CARD -->
-        <div class="bg-white rounded-3xl shadow-xl p-10">
+        <div class="bg-white rounded-3xl shadow-xl p-6 md:p-10">
 
             <!-- HEADER -->
             <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-[#1f2937]">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1f2937]">
                     Pembelian Tiket Online
                 </h2>
 
@@ -60,7 +63,7 @@
 
             <!-- NAMA -->
             <div>
-                <label class="font-semibold text-gray-700">Nama Lengkap</label>
+                <label class="block font-semibold text-gray-700">Nama Lengkap</label>
 
                 <input type="text"
                     name="nama"
@@ -71,7 +74,7 @@
 
             <!-- TANGGAL -->
             <div>
-                <label class="font-semibold text-gray-700">Tanggal Kunjungan</label>
+                <label class="block font-semibold text-gray-700">Tanggal Kunjungan</label>
 
                 <input type="date"
                     name="tanggal_kunjungan"
@@ -86,7 +89,7 @@
             <div class="grid md:grid-cols-2 gap-6">
 
                 <div>
-                    <label class="font-semibold text-gray-700">Tipe Kunjungan</label>
+                    <label class="block font-semibold text-gray-700">Tipe Kunjungan</label>
 
                     <select name="tipe_kunjungan"
                             id="tipeKunjungan"
@@ -100,7 +103,7 @@
                 </div>
 
                 <div>
-                    <label class="font-semibold text-gray-700">Kategori Umur</label>
+                    <label class="block font-semibold text-gray-700">Kategori Umur</label>
 
                     <select name="kategori_umur"
                             required
@@ -120,7 +123,7 @@
 
             <!-- KATEGORI PENGUNJUNG -->
             <div>
-                <label class="font-semibold text-gray-700">Kategori Pengunjung</label>
+                <label class="block font-semibold text-gray-700">Kategori Pengunjung</label>
 
                 <select name="kategori_pengunjung"
                         id="kategoriPengunjung"
@@ -139,7 +142,7 @@
 
             <!-- NAMA INSTANSI -->
             <div id="instansiField" class="hidden">
-                <label class="font-semibold text-gray-700">
+                <label class="block font-semibold text-gray-700">
                     Nama Instansi / Sekolah
                 </label>
 
@@ -153,7 +156,7 @@
             <div class="grid md:grid-cols-2 gap-6">
 
                 <div>
-                    <label class="font-semibold text-gray-700">Provinsi</label>
+                    <label class="block font-semibold text-gray-700">Provinsi</label>
 
                     <select id="provinsi-online"
                             name="provinsi"
@@ -171,7 +174,7 @@
                 </div>
 
                 <div>
-                    <label class="font-semibold text-gray-700">Kabupaten/Kota</label>
+                    <label class="block font-semibold text-gray-700">Kabupaten/Kota</label>
 
                     <select id="kabupaten-online"
                             name="kabupaten"
@@ -189,7 +192,7 @@
 
                 <!-- JENIS TIKET -->
                 <div>
-                    <label class="font-semibold text-gray-700">
+                    <label class="block font-semibold text-gray-700">
                         Jenis Tiket
                     </label>
 
@@ -224,7 +227,7 @@
 
                 <!-- JUMLAH TIKET -->
                 <div>
-                    <label class="font-semibold text-gray-700">
+                    <label class="block font-semibold text-gray-700">
                         Jumlah Tiket
                     </label>
 
@@ -242,7 +245,7 @@
 
             <!-- FREKUENSI -->
             <div>
-                <label class="font-semibold text-gray-700">
+                <label class="block font-semibold text-gray-700">
                     Frekuensi Kunjungan
                 </label>
 
@@ -261,7 +264,8 @@
             <!-- BUTTON -->
             <div class="text-center pt-6">
                 <button type="submit"
-                        class="px-10 py-3 bg-[#0f2a2c] text-white
+                        class="w-full sm:w-auto
+                            px-10 py-3 bg-[#0f2a2c] text-white
                             rounded-full font-semibold shadow-lg
                             hover:bg-transparent hover:text-[#0f2a2c]
                             hover:border-2 hover:border-[#0f2a2c]

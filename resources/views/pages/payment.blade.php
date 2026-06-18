@@ -1,9 +1,9 @@
 <x-app-layout>
 
-<section class="py-20 bg-[#f3f4f1] min-h-screen">
+<section class="py-16 md:py-20 bg-[#f3f4f1] min-h-screen overflow-x-hidden">
     <x-step-indicator step="2" />
 
-    <div class="max-w-6xl mx-auto px-6">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
 
         <!-- STEP INDICATOR -->
         <div class="mb-14 text-center">
@@ -11,7 +11,7 @@
                 Langkah 2 dari 3
             </p>
 
-            <h2 class="text-4xl font-bold text-[#1f2937]">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1f2937]">
                 Konfirmasi & Pembayaran
             </h2>
         </div>
@@ -19,7 +19,7 @@
         <div class="grid lg:grid-cols-3 gap-10">
 
             <!-- ================= KIRI — DETAIL ================= -->
-            <div class="lg:col-span-2 bg-white rounded-3xl shadow-lg p-8">
+            <div class="lg:col-span-2 bg-white rounded-3xl shadow-lg p-5 md:p-8">
 
                 <h3 class="text-2xl font-bold text-[#0f2a2c] mb-6">
                     Detail Kunjungan
@@ -27,26 +27,26 @@
 
                 <div class="space-y-4 text-gray-700">
 
-                    <div class="flex justify-between">
+                    <div class="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4">
                         <span>Nama Pengunjung</span>
                         <span class="font-semibold">{{ $ticket->nama }}</span>
                     </div>
 
-                    <div class="flex justify-between">
+                    <div class="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4">
                         <span>Kategori</span>
                         <span class="font-semibold">
                             {{ ucfirst($ticket->kategori) }}
                         </span>
                     </div>
 
-                    <div class="flex justify-between">
+                    <div class="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4">
                         <span>Jumlah Tiket</span>
                         <span class="font-semibold">
                             {{ $ticket->jumlah_tiket }} Orang
                         </span>
                     </div>
 
-                    <div class="flex justify-between">
+                    <div class="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4">
                         <span>Tanggal Kunjungan</span>
                         <span class="font-semibold">
                             {{ \Carbon\Carbon::parse($ticket->tanggal_kunjungan)->format('d M Y') }}
@@ -64,7 +64,7 @@
             </div>
 
             <!-- ================= KANAN — RINGKASAN ================= -->
-            <div class="bg-white rounded-3xl shadow-lg p-8 h-fit">
+            <div class="bg-white rounded-3xl shadow-lg p-5 md:p-8 h-fit">
 
                 <h3 class="text-xl font-bold text-[#0f2a2c] mb-6">
                     Ringkasan Pembayaran
@@ -72,19 +72,19 @@
 
                 <div class="space-y-4 text-gray-700 text-sm">
 
-                    <div class="flex justify-between">
+                    <div class="flex justify-between items-center gap-4">
                         <span>Harga per Tiket</span>
                         <span>Rp{{ number_format($harga, 0, ',', '.') }}</span>
                     </div>
 
-                    <div class="flex justify-between">
+                    <div class="flex justify-between items-center gap-4">
                         <span>Jumlah Tiket</span>
                         <span>{{ $ticket->jumlah_tiket }}</span>
                     </div>
 
                     <hr>
 
-                    <div class="flex justify-between text-lg font-bold text-[#0f2a2c]">
+                    <div class="flex justify-between items-center gap-4 text-lg font-bold text-[#0f2a2c]">
                         <span>Total Pembayaran</span>
                         <span>Rp{{ number_format($total, 0, ',', '.') }}</span>
                     </div>

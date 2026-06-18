@@ -9,9 +9,9 @@
     <!-- ===================================================== -->
 
     <div class="flex flex-col xl:flex-row
-        xl:items-center
-        xl:justify-between
-        gap-6">
+            xl:items-start
+            xl:justify-between
+            gap-6">
 
         <!-- TITLE -->
         <div>
@@ -60,19 +60,17 @@
             <form method="GET"
                 action="{{ route('admin.analytics') }}">
 
-                <!-- FILTER BAR -->
                 <div class="flex flex-wrap items-end gap-3">
 
-                    <!-- DARI -->
+                    <!-- TANGGAL MULAI -->
                     <div>
 
                         <label class="block text-xs text-gray-500 mb-1">
-
                             Tanggal Mulai
-
                         </label>
 
-                        <input type="date"
+                        <input
+                            type="date"
                             name="start_date"
                             value="{{ request('start_date') }}"
                             class="border border-gray-200
@@ -84,16 +82,15 @@
 
                     </div>
 
-                    <!-- SAMPAI -->
+                    <!-- TANGGAL AKHIR -->
                     <div>
 
                         <label class="block text-xs text-gray-500 mb-1">
-
                             Tanggal Akhir
-
                         </label>
 
-                        <input type="date"
+                        <input
+                            type="date"
                             name="end_date"
                             value="{{ request('end_date') }}"
                             class="border border-gray-200
@@ -158,7 +155,7 @@
     <!-- MINI STATISTICS -->
     <!-- ===================================================== -->
 
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
 
         <!-- TOTAL PERIODE -->
         <div class="rounded-2xl border border-cyan-100 bg-cyan-50 p-5">
@@ -239,7 +236,8 @@
     @if($trend->isEmpty())
 
     <div class="bg-white border border-gray-200
-        rounded-2xl p-16">
+                rounded-2xl
+                p-6 md:p-16">
 
         <div class="max-w-md mx-auto text-center">
 
@@ -358,7 +356,7 @@
 
         </div>
 
-        <div class="h-[320px]">
+        <div class="h-[280px] md:h-[320px]">
             <canvas id="trendChart"></canvas>
         </div>
 
@@ -382,7 +380,7 @@
                 Intensitas kunjungan pengunjung museum
             </p>
 
-            <div class="h-[260px] mt-6">
+            <div class="h-[220px] sm:h-[260px] mt-6">
                 <canvas id="frekuensiChart"></canvas>
             </div>
 
@@ -400,7 +398,7 @@
                 Distribusi kategori pengunjung
             </p>
 
-            <div class="h-[260px] mt-6">
+            <div class="h-[220px] sm:h-[260px] mt-6">
                 <canvas id="tipePengunjungChart"></canvas>
             </div>
 
@@ -418,7 +416,7 @@
                 Individu dan rombongan
             </p>
 
-            <div class="h-[260px] mt-6">
+            <div class="h-[220px] sm:h-[260px] mt-6">
                 <canvas id="tipeKunjunganChart"></canvas>
             </div>
 
@@ -436,7 +434,7 @@
                 Asal wilayah pengunjung museum
             </p>
 
-            <div class="h-[260px] mt-6">
+            <div class="h-[220px] sm:h-[260px] mt-6">
                 <canvas id="provinsiChart"></canvas>
             </div>
 
@@ -459,7 +457,7 @@
             Wilayah dengan jumlah pengunjung tertinggi
         </p>
 
-        <div class="h-[320px] mt-6">
+        <div class="h-[220px] md:h-[260px] mt-6">
             <canvas id="kabupatenChart"></canvas>
         </div>
 
@@ -594,10 +592,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     cutout:'72%',
 
                     plugins:{
-                        legend:{
-                            position:'bottom'
-                        }
+                    legend:{
+                        position: window.innerWidth < 768
+                            ? 'bottom'
+                            : 'right'
                     }
+                }
 
                 }
 

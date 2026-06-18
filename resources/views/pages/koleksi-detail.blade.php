@@ -21,10 +21,10 @@
         bg-cyan-300/10 blur-3xl">
     </div>
 
-    <div class="relative max-w-7xl mx-auto px-6 py-20">
+    <div class="relative max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-20">
 
         <!-- BREADCRUMB -->
-        <div class="mb-8 text-sm text-white/60">
+        <div class="mb-8 text-sm text-white/60 break-words">
 
             <a href="/"
                 class="hover:text-white transition">
@@ -62,7 +62,7 @@
                 <!-- IMAGE -->
                 <img src="{{ $gambar }}"
                     alt="{{ $judul }}"
-                    class="w-full h-[500px]
+                    class="w-full h-[280px] sm:h-[380px] lg:h-[500px]
                     object-cover rounded-[32px]
                     shadow-2xl">
 
@@ -76,11 +76,13 @@
                 </div>
 
                 <!-- NOMOR -->
-                <div class="absolute top-6 right-6
-                    w-14 h-14 rounded-full
+                <div class="absolute top-4 md:top-6 right-4 md:right-6
+                    w-10 h-10 md:w-14 md:h-14
+                    rounded-full
                     bg-white/90 backdrop-blur-sm
                     flex items-center justify-center
-                    text-lg font-bold text-gray-900">
+                    text-sm md:text-lg
+                    font-bold text-gray-900">
 
                     01
 
@@ -116,7 +118,7 @@
 
                 <!-- TITLE -->
                 <h1 class="mt-6
-                    text-4xl md:text-5xl
+                    text-3xl sm:text-4xl md:text-5xl
                     font-bold leading-tight">
 
                     {{ $judul }}
@@ -126,17 +128,16 @@
                 <!-- DESC -->
                 <p class="mt-6
                     text-white/80
-                    leading-8 text-lg">
+                    leading-8 text-base md:text-lg">
 
                     {{ $deskripsi }}
 
                 </p>
 
                 <!-- MINI INFO -->
-                <div class="mt-10 flex flex-wrap gap-4">
+                <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
-                    <div class="px-5 py-3
-                        rounded-2xl
+                    <div class="h-full px-5 py-3 rounded-2xl
                         bg-white/5
                         border border-white/10">
 
@@ -154,8 +155,7 @@
 
                     </div>
 
-                    <div class="px-5 py-3
-                        rounded-2xl
+                    <div class="h-full px-5 py-3 rounded-2xl
                         bg-white/5
                         border border-white/10">
 
@@ -173,8 +173,7 @@
 
                     </div>
 
-                    <div class="px-5 py-3
-                        rounded-2xl
+                    <div class="h-full px-5 py-3 rounded-2xl
                         bg-white/5
                         border border-white/10">
 
@@ -214,7 +213,7 @@
         rounded-full blur-3xl">
     </div>
 
-    <div class="relative max-w-5xl mx-auto px-6">
+    <div class="relative max-w-5xl mx-auto px-4 md:px-6">
 
         <!-- WRAPPER -->
         <div class="bg-white
@@ -226,7 +225,7 @@
             <!-- ================================= -->
             <!-- INFORMASI -->
             <!-- ================================= -->
-            <div class="p-8 md:p-10">
+            <div class="p-6 md:p-10">
 
                 <!-- HEADER -->
                 <div class="mb-10">
@@ -401,7 +400,7 @@
             <!-- ================================= -->
             <!-- DESKRIPSI -->
             <!-- ================================= -->
-            <div class="p-8 md:p-10">
+            <div class="p-6 md:p-10">
 
                 <div class="max-w-3xl">
 
@@ -454,7 +453,7 @@
             <!-- ================================= -->
             <!-- KONTEKS -->
             <!-- ================================= -->
-            <div class="p-8 md:p-10">
+            <div class="p-6 md:p-10">
 
                 <div class="max-w-3xl">
 
@@ -504,7 +503,7 @@
 <!-- ========================================= -->
 <section class="bg-[#f8fafc] py-20">
 
-    <div class="max-w-6xl mx-auto px-6">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
 
         <!-- HEADER -->
         <div class="flex flex-col md:flex-row
@@ -539,7 +538,7 @@
 
 
         <!-- GRID -->
-        <div class="grid md:grid-cols-3 gap-8">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
             @foreach($related as $item)
 
@@ -557,7 +556,7 @@
 
                     <img src="{{ asset('storage/' . $item->gambar) }}"
                         alt="{{ $item->judul }}"
-                        class="w-full h-56 object-cover
+                        class="w-full h-48 md:h-56 object-cover
                         group-hover:scale-110
                         transition duration-700">
 
@@ -630,7 +629,7 @@
 <!-- NAVIGASI -->
 <section class="bg-white py-12">
 
-  <div class="max-w-4xl mx-auto px-6 text-center">
+  <div class="max-w-4xl mx-auto px-4 md:px-6 text-center">
 
     <a href="/koleksi"
        class="inline-block px-8 py-3

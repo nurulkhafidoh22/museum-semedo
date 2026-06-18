@@ -20,7 +20,8 @@ $hero = $pages->first();
 
         </p>
 
-        <h1 class="text-3xl font-bold text-gray-900">
+        <h1 class="text-2xl md:text-3xl
+            font-bold text-gray-900">
             Pengaturan Beranda
         </h1>
 
@@ -34,6 +35,7 @@ $hero = $pages->first();
 
         <div class="bg-green-50
             border border-green-200
+            text-sm
             text-green-700
             px-4 py-3
             rounded-xl">
@@ -45,13 +47,19 @@ $hero = $pages->first();
     @endif
 
     <div class="bg-white
-        border border-gray-200
-        rounded-3xl
-        p-8">
+                border border-gray-200
+                rounded-3xl
+                p-5 md:p-8">
 
         @if ($errors->any())
 
-            <div class="bg-red-50 border border-red-200 text-red-700 p-4 rounded-xl">
+            <div class="bg-red-50
+                border border-red-200
+                text-red-700
+                text-sm
+                p-4
+                rounded-xl
+                mb-6">
 
                 <ul class="list-disc pl-5">
 
@@ -95,11 +103,13 @@ $hero = $pages->first();
                         name="title"
                         value="{{ old('title', $hero?->title) }}"
                         class="w-full
-                        border
-                        border-gray-300
-                        rounded-xl
-                        px-4 py-3">
-
+                            border border-gray-300
+                            rounded-xl
+                            px-4 py-3
+                            focus:outline-none
+                            focus:ring-2
+                            focus:ring-[#0f766e]/20
+                            focus:border-[#0f766e]">
                 </div>
 
                 <!-- DESKRIPSI -->
@@ -154,7 +164,11 @@ $hero = $pages->first();
 
                     <img
                         src="{{ asset('storage/'.$hero->image) }}?v={{ $hero->updated_at->timestamp }}"
-                        class="w-full max-w-md rounded-xl border">
+                        class="w-full
+                            max-w-md
+                            rounded-2xl
+                            border border-gray-200
+                            shadow-sm">
 
                 </div>
 
@@ -166,18 +180,16 @@ $hero = $pages->first();
 
                     <button
                         type="submit"
-                        class="inline-flex items-center gap-2
+                        class="flex w-full sm:w-auto
+                        items-center justify-center gap-2
                         px-5 py-2.5
                         rounded-xl
                         bg-[#062b30]
                         text-white
                         font-medium
-
                         hover:bg-[#0f766e]
-
                         shadow-sm
                         hover:shadow-md
-
                         transition-all duration-300">
 
                         <i data-lucide="save"

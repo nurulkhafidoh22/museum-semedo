@@ -2,8 +2,8 @@
 
 @section('content')
 
-<div class="space-y-8">
-
+<div class="space-y-6">
+    
 <div>
 
     <p class="text-[11px]
@@ -16,7 +16,7 @@
 
     </p>
 
-    <h1 class="text-3xl font-bold text-gray-900">
+    <h1 class="text-2xl md:text-3xl font-bold text-gray-900">
         Tambah Koleksi
     </h1>
 
@@ -49,6 +49,7 @@
 @endif
 
 <form
+    id="formCreateKoleksi"
     action="{{ route('admin.settings.koleksi.store') }}"
     method="POST"
     enctype="multipart/form-data"
@@ -61,7 +62,7 @@
     <div class="bg-white
         border border-gray-200
         rounded-3xl
-        p-8">
+        p-5 md:p-8">
 
         <h2 class="text-xl font-semibold text-gray-900 mb-6">
             Informasi Utama
@@ -82,7 +83,12 @@
                     class="w-full
                     border border-gray-300
                     rounded-xl
-                    px-4 py-3"
+                    px-4 py-3
+
+                    focus:outline-none
+                    focus:ring-2
+                    focus:ring-[#0f766e]/20
+                    focus:border-[#0f766e]"
                     required>
 
             </div>
@@ -98,7 +104,12 @@
                     class="w-full
                     border border-gray-300
                     rounded-xl
-                    px-4 py-3"
+                    px-4 py-3
+
+                    focus:outline-none
+                    focus:ring-2
+                    focus:ring-[#0f766e]/20
+                    focus:border-[#0f766e]"
                     required>
 
                     <option value="">
@@ -154,7 +165,7 @@
     <div class="bg-white
         border border-gray-200
         rounded-3xl
-        p-8">
+        p-5 md:p-8">
 
         <h2 class="text-xl font-semibold text-gray-900 mb-6">
             Informasi Detail
@@ -173,9 +184,14 @@
                     name="periode"
                     value="{{ old('periode') }}"
                     class="w-full
-                    border border-gray-300
-                    rounded-xl
-                    px-4 py-3">
+                        border border-gray-300
+                        rounded-xl
+                        px-4 py-3
+
+                        focus:outline-none
+                        focus:ring-2
+                        focus:ring-[#0f766e]/20
+                        focus:border-[#0f766e]">
 
             </div>
 
@@ -190,9 +206,14 @@
                     name="usia"
                     value="{{ old('usia') }}"
                     class="w-full
-                    border border-gray-300
-                    rounded-xl
-                    px-4 py-3">
+                        border border-gray-300
+                        rounded-xl
+                        px-4 py-3
+
+                        focus:outline-none
+                        focus:ring-2
+                        focus:ring-[#0f766e]/20
+                        focus:border-[#0f766e]">
 
             </div>
 
@@ -207,9 +228,14 @@
                     name="lokasi"
                     value="{{ old('lokasi') }}"
                     class="w-full
-                    border border-gray-300
-                    rounded-xl
-                    px-4 py-3">
+                        border border-gray-300
+                        rounded-xl
+                        px-4 py-3
+
+                        focus:outline-none
+                        focus:ring-2
+                        focus:ring-[#0f766e]/20
+                        focus:border-[#0f766e]">
 
             </div>
 
@@ -222,7 +248,7 @@
     <div class="bg-white
         border border-gray-200
         rounded-3xl
-        p-8">
+        p-5 md:p-8">
 
         <h2 class="text-xl font-semibold text-gray-900 mb-6">
             Konten Koleksi
@@ -240,9 +266,14 @@
                     name="deskripsi"
                     rows="4"
                     class="w-full
-                    border border-gray-300
-                    rounded-xl
-                    px-4 py-3"
+                        border border-gray-300
+                        rounded-xl
+                        px-4 py-3
+
+                        focus:outline-none
+                        focus:ring-2
+                        focus:ring-[#0f766e]/20
+                        focus:border-[#0f766e]"
                     required>{{ old('deskripsi') }}</textarea>
 
             </div>
@@ -257,9 +288,14 @@
                     name="deskripsi_lengkap_1"
                     rows="6"
                     class="w-full
-                    border border-gray-300
-                    rounded-xl
-                    px-4 py-3">{{ old('deskripsi_lengkap_1') }}</textarea>
+                        border border-gray-300
+                        rounded-xl
+                        px-4 py-3
+
+                        focus:outline-none
+                        focus:ring-2
+                        focus:ring-[#0f766e]/20
+                        focus:border-[#0f766e]">{{ old('deskripsi_lengkap_1') }}</textarea>
 
             </div>
 
@@ -273,9 +309,14 @@
                     name="deskripsi_lengkap_2"
                     rows="6"
                     class="w-full
-                    border border-gray-300
-                    rounded-xl
-                    px-4 py-3">{{ old('deskripsi_lengkap_2') }}</textarea>
+                        border border-gray-300
+                        rounded-xl
+                        px-4 py-3
+
+                        focus:outline-none
+                        focus:ring-2
+                        focus:ring-[#0f766e]/20
+                        focus:border-[#0f766e]">{{ old('deskripsi_lengkap_2') }}</textarea>
 
             </div>
 
@@ -289,9 +330,14 @@
                     name="konteks"
                     rows="6"
                     class="w-full
-                    border border-gray-300
-                    rounded-xl
-                    px-4 py-3">{{ old('konteks') }}</textarea>
+                        border border-gray-300
+                        rounded-xl
+                        px-4 py-3
+
+                        focus:outline-none
+                        focus:ring-2
+                        focus:ring-[#0f766e]/20
+                        focus:border-[#0f766e]">{{ old('konteks') }}</textarea>
 
             </div>
 
@@ -301,16 +347,21 @@
 
     <!-- BUTTON -->
 
-    <div class="flex items-center gap-3">
+    <div class="flex flex-col sm:flex-row gap-3">
 
         <a
             href="{{ route('admin.settings', ['menu' => 'koleksi']) }}"
-            class="px-5 py-2.5
+            class="w-full sm:w-auto
+            inline-flex items-center justify-center gap-2
+            px-5 py-2.5
             border border-gray-300
             text-gray-700
             rounded-xl
             hover:bg-gray-50
-            transition">
+            transition-all duration-300">
+
+            <i data-lucide="arrow-left"
+                class="w-4 h-4"></i>
 
             Kembali
 
@@ -318,12 +369,19 @@
 
         <button
             type="submit"
-            class="px-5 py-2.5
+            class="w-full sm:w-auto
+            inline-flex items-center justify-center gap-2
+            px-5 py-2.5
             bg-[#062b30]
             text-white
             rounded-xl
             hover:bg-[#0f766e]
-            transition">
+            shadow-sm
+            hover:shadow-md
+            transition-all duration-300">
+
+            <i data-lucide="folder-plus"
+                class="w-4 h-4"></i>
 
             Simpan Koleksi
 
@@ -334,5 +392,42 @@
 </form>
 
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+
+document.getElementById('formCreateKoleksi')
+.addEventListener('submit', function(e){
+
+    e.preventDefault();
+
+    Swal.fire({
+
+        title: 'Simpan Koleksi?',
+        text: 'Data koleksi baru akan ditambahkan.',
+        icon: 'question',
+
+        showCancelButton: true,
+
+        confirmButtonColor: '#062b30',
+        cancelButtonColor: '#6b7280',
+
+        confirmButtonText: 'Ya, Simpan',
+        cancelButtonText: 'Batal'
+
+    }).then((result) => {
+
+        if(result.isConfirmed){
+
+            this.submit();
+
+        }
+
+    });
+
+});
+
+</script>
 
 @endsection

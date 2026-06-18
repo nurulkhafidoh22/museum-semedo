@@ -3,6 +3,9 @@
 <head>
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script defer
+        src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js">
+        </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -79,16 +82,34 @@
 
 </head>
 
-<body class="bg-[#f5f7fb] font-[Figtree]">
+<body class="bg-[#f5f7fb] font-[Figtree] overflow-x-hidden">
 
-<div class="flex min-h-screen">
+    <div
+        x-data="{ sidebarOpen:false }"
+        class="flex min-h-screen">
+
+        <!-- OVERLAY -->
+        <div
+            x-show="sidebarOpen"
+            x-transition.opacity
+            @click="sidebarOpen=false"
+            class="fixed inset-0 bg-black/50 z-40 lg:hidden">
+        </div>
 
 <!-- ================= SIDEBAR ================= -->
-<aside class="fixed top-0 left-0 h-screen w-72
-    bg-[#0b1f21]
-    text-white
-    flex flex-col
-    border-r border-white/10">
+<aside
+    :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'"
+    class="fixed top-0 left-0 z-50
+           h-screen w-64 lg:w-72
+           bg-[#0b1f21]
+           text-white
+           flex flex-col
+
+           overflow-y-auto
+
+           border-r border-white/10
+           transition-transform duration-300
+           lg:translate-x-0">
 
     <!-- ================================= -->
     <!-- BRAND -->
@@ -101,13 +122,13 @@
             <div class="flex items-center justify-center">
 
                 <img src="/images/museum-icon.png"
-                    class="h-10 w-auto">
+                    class="h-8 lg:h-10 w-auto">
 
             </div>
 
             <div>
 
-                <h2 class="font-bold text-white text-lg leading-tight">
+                <h2 class="font-bold text-white text-base lg:text-lg leading-tight">
                     Museum Semedo
                 </h2>
 
@@ -222,23 +243,6 @@
 
             </a>
 
-            <!-- PETUGAS -->
-            <a href="{{ route('admin.petugas.index') }}"
-                class="group flex items-center gap-3 px-4 py-3
-                text-[14px]
-                rounded-xl transition-all
-
-                {{ request()->routeIs('admin.petugas*')
-                ? 'bg-white/10 border-l-4 border-cyan-400 text-white shadow-lg'
-                : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">
-
-                <i data-lucide="user-cog"
-                    class="w-4 h-4"></i>
-
-                Petugas
-
-            </a>
-
             <!-- LAPORAN -->
             <a href="{{ route('admin.laporan') }}"
                 class="group flex items-center gap-3 px-4 py-3
@@ -253,6 +257,23 @@
                     class="w-4 h-4"></i>
 
                 Laporan
+
+            </a>
+
+            <!-- PETUGAS -->
+            <a href="{{ route('admin.petugas.index') }}"
+                class="group flex items-center gap-3 px-4 py-3
+                text-[14px]
+                rounded-xl transition-all
+
+                {{ request()->routeIs('admin.petugas*')
+                ? 'bg-white/10 border-l-4 border-cyan-400 text-white shadow-lg'
+                : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">
+
+                <i data-lucide="user-cog"
+                    class="w-4 h-4"></i>
+
+                Petugas
 
             </a>
 
@@ -347,10 +368,30 @@
 
 </aside>
 <!-- ================= MAIN ================= -->
-<div class="flex-1 flex flex-col ml-72 main-wrapper">
+<div class="flex-1 flex flex-col lg:ml-72 main-wrapper">
+
+    <div class="lg:hidden sticky top-0 z-40
+        bg-white border-b border-gray-200
+        px-4 py-3 flex items-center justify-between">
+
+        <button
+            @click="sidebarOpen = true"
+            class="p-2 rounded-lg hover:bg-gray-100">
+
+            <i data-lucide="menu"
+                class="w-6 h-6">
+            </i>
+
+        </button>
+
+        <span class="font-semibold text-[#0f2a2c]">
+            Museum Semedo
+        </span>
+
+    </div>
 
     <!-- ================= CONTENT ================= -->
-    <main class="flex-1 overflow-y-auto">
+    <main class="flex-1 overflow-y-auto overflow-x-hidden">
         @yield('content')
     </main>
 

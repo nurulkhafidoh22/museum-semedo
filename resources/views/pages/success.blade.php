@@ -1,6 +1,6 @@
 <x-app-layout>
 
-<section class="py-10 bg-[#f8fafc] min-h-screen">
+<section class="py-8 md:py-10 bg-[#f8fafc] min-h-screen overflow-x-hidden">
 
     {{-- STEP INDICATOR --}}
     @if($ticket->jenis_tiket === 'online')
@@ -15,13 +15,13 @@
             label3="Masuk" />
     @endif
 
-    <div class="max-w-xl mx-auto my-12 px-6">
+    <div class="max-w-xl mx-auto my-8 md:my-12 px-4 md:px-6">
 
         <!-- CARD -->
         <div class="bg-white rounded-3xl shadow-2xl overflow-hidden">
 
             <!-- HEADER -->
-            <div class="bg-[#0f2a2c] text-white px-8 py-6">
+            <div class="bg-[#0f2a2c] text-white px-5 md:px-8 py-6">
 
                 <div class="flex justify-between items-start">
 
@@ -37,10 +37,10 @@
 
                         </p>
 
-                        <h1 class="text-[30px]
-                                font-bold
-                                tracking-tight
-                                leading-none">
+                        <h1 class="text-2xl sm:text-3xl
+                            font-bold
+                            tracking-tight
+                            leading-tight">
 
                             @if($ticket->jenis_tiket === 'online')
                                 Pembayaran Berhasil
@@ -73,10 +73,14 @@
             </div>
 
             <!-- BODY -->
-            <div class="p-8">
+            <div class="p-5 md:p-8">
 
                 <!-- TOP -->
-                <div class="flex justify-between items-center mb-8">
+                <div class="flex flex-col sm:flex-row
+                    justify-between
+                    items-start sm:items-center
+                    gap-3
+                    mb-8">
 
                     <!-- LEFT -->
                     <div class="text-sm text-gray-500">
@@ -115,7 +119,9 @@
                 </div>
 
                 <!-- INFO -->
-                <div class="grid grid-cols-2 gap-y-7 gap-x-12 mb-10 text-sm">
+                <div class="grid grid-cols-1 sm:grid-cols-2
+                    gap-y-7 gap-x-12
+                    mb-10 text-sm">
 
                     <!-- NAMA -->
                     <div>
@@ -124,7 +130,9 @@
                             Nama Pengunjung
                         </p>
 
-                        <p class="font-semibold text-lg text-[#1f2937]">
+                        <p class="font-semibold text-base md:text-lg
+                            text-[#1f2937]
+                            break-words">
 
                             {{ $ticket->nama }}
 
@@ -182,13 +190,13 @@
                 <!-- QR -->
                 <div class="text-center">
 
-                    <div class="inline-block p-6 bg-[#f3f4f1] rounded-2xl shadow-inner">
+                    <div class="inline-block p-4 md:p-6 bg-[#f3f4f1] rounded-2xl shadow-inner">
 
                         {!! QrCode::size(240)->generate($ticket->hash) !!}
 
                     </div>
 
-                    <p class="text-xs text-gray-400 mt-3">
+                    <p class="text-xs text-gray-400 mt-3 break-all">
 
                         Kode Verifikasi:
                         {{ $ticket->hash }}
@@ -209,12 +217,13 @@
                 </div>
 
                 <!-- BUTTON -->
-                <div class="mt-8 flex justify-center gap-4">
+                <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
 
                     @if($ticket->jenis_tiket === 'online')
 
                         <a href="{{ route('tiket.show', $ticket->id) }}"
-                        class="inline-flex items-center gap-2
+                        class="w-full sm:w-auto
+                                inline-flex items-center justify-center gap-2
                                 px-8 py-3
                                 rounded-full
                                 bg-[#0f2a2c]
@@ -233,7 +242,8 @@
                     @else
 
                         <a href="{{ url('/') }}"
-                        class="inline-flex items-center gap-2
+                        class="w-full sm:w-auto
+                                inline-flex items-center justify-center gap-2
                                 px-8 py-3
                                 rounded-full
                                 bg-[#0f2a2c]

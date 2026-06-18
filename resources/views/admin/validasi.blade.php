@@ -59,7 +59,7 @@
 
                 <div class="flex flex-wrap items-end gap-3">
 
-                    <div>
+                    <div class="w-full sm:w-auto">
 
                         <label class="block text-xs text-gray-500 mb-1">
                             Tanggal
@@ -69,16 +69,18 @@
                             type="date"
                             name="date"
                             value="{{ $date }}"
-                            class="border border-gray-200
-                            rounded-lg
-                            px-3 py-2
-                            text-sm
-                            focus:ring-0
-                            focus:border-[#0f766e]">
+                            class="w-full
+                                sm:w-[180px]
+                                border border-gray-200
+                                rounded-lg
+                                px-3 py-2
+                                text-sm
+                                focus:ring-0
+                                focus:border-[#0f766e]">
 
                     </div>
 
-                    <div class="flex gap-3">
+                    <div class="flex flex-wrap gap-3">
 
                         <!-- FILTER -->
                         <button
@@ -241,7 +243,10 @@
     </div>
 
     <!-- TABLE HEADER -->
-    <div class="flex items-center justify-between mb-4">
+    <div class="flex flex-col sm:flex-row
+            sm:items-center
+            sm:justify-between
+            gap-4 mb-4">
 
         <div>
 
@@ -256,7 +261,8 @@
         </div>
 
             <a href="{{ route('admin.validasi.export', ['date' => $date]) }}"
-            class="inline-flex items-center gap-2
+            class="w-full sm:w-auto
+            inline-flex items-center justify-center gap-2
             px-4 py-2
             rounded-lg
             border border-gray-300
@@ -358,18 +364,18 @@
             </p>
 
             <!-- FILTER INFO -->
-            @if(request('tanggal'))
+            @if(request('date'))
 
-                <p class="mt-4 text-xs text-gray-400">
+            <p class="mt-4 text-xs text-gray-400">
 
-                    Tanggal:
-                    <span class="font-medium">
+                Tanggal:
+                <span class="font-medium">
 
-                        {{ request('tanggal') }}
+                    {{ request('date') }}
 
-                    </span>
+                </span>
 
-                </p>
+            </p>
 
             @endif
 
